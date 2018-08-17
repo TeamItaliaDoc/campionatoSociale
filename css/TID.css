@@ -1,0 +1,189 @@
+﻿html,body
+{
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+.frame-principale
+{
+    background-color: #fff;
+    margin-top: 10px;
+    position: absolute;
+    width:1005px;
+    margin-left: -500px;
+    left: 50%;
+}
+.intestazione-img
+{
+    margin-top: 10px;
+    margin-left: 10px;
+    position: absolute;
+}
+.intestazione-titolo
+{
+    position: relative;
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-left: 160px;
+}
+.intestazione-piede 
+{
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-left: 160px;
+    margin-top: 35px;
+}
+.intestazione-gironi
+{
+    position: relative;
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-left: 10px;
+}
+/* TABELLA CLASSIFICA */
+.classifica-tabella
+{
+    margin-left: 10px;
+    background-color: transparent;
+    font-size: 1.3rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 1.42857143;
+    color: #312e2b;
+    width:950px;
+}
+.classifica-intestazione
+{
+    background-color: #f1f1f1;
+    border-bottom: none;
+    text-align: left;
+    font-weight: 400;
+    padding: 8px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color: #666463;
+    font-size: 18px;
+    text-align: right;
+}
+
+.classifica-col1 {
+    width:50px;
+    text-align:center;
+}   
+.classifica-col2 {
+    width:300px;
+    text-align:left;
+}   
+.classifica-col3 {
+    width:100px;
+}   
+.classifica-col4 {
+    width:200px;
+}   
+.classifica-col5 {
+    width:20px;
+}   
+.classifica-col6 {
+    width:280px;
+    text-align:left;
+}   
+.classifica-avatar {
+    width:35px;
+    height:35px;
+}   
+.classifica-country {
+    width:16px;
+    height:16px;
+}
+.game-win {
+    color: #4b7636;
+}
+.game-loss {
+    color: #e6912c;
+}
+.game-draw {
+    color: #a7a6a2;
+}
+.username
+{
+    text-decoration: none;  
+    font-weight: 600;
+    color: #005e94;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-color: transparent;
+}
+/* TABELLA GIRONI */
+.gironi-tabella
+{
+    margin-left: 10px;
+    background-color: transparent;
+    font-size: 1.3rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 1.42857143;
+    color: #312e2b;
+    width:820px; 
+}
+.classifica-giocatori
+{
+    border-right: 0;
+    padding-right: 5px;
+    color: #312e2b;
+    background-color: transparent;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    text-align: right;
+    border-bottom: 1px solid #ececec;
+}
+
+.gironi-intestazione
+{
+    background-color: #f1f1f1;
+    border-bottom: none;
+    text-align: left;
+    font-weight: 400;
+    padding: 8px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color: #666463;
+    font-size: 18px;
+    text-align: left;
+}
+.gironi-giocatori
+{
+    border-right: 0;
+    padding-right: 5px;
+    color: #312e2b;
+    background-color: transparent;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ececec;
+}
+.gironi-col1 {
+    width:500px;
+}   
+.gironi-col2 {
+    width:100px;
+}   
+.gironi-col3 {
+    width:20px;
+}   
+.gironi-col4 {
+    width:200px;
+}   
+
+/*  Powered */
+.powered{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    margin-top: 400px;
+    margin-left: 10px;
+   
+}
+
+

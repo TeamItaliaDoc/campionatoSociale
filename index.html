@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8"> 
+<link rel="stylesheet" href="css/TID.css"/>
+<script type="text/javascript" src="js/jquery-2.0.3.js"> </script>
+<script type="text/javascript" src="js/campionatoSociale.js"> </script>
+
+</head>
+
+<body>
+    
+<!--                            INTESTAZIONE                                        -->   
+<main align=”center” class="frame-principale"> 
+<div class="intestazione-img">
+    <img height="125" width="125" src="img\TID.png">
+</div>
+<div>
+    <h1 class="intestazione-titolo">Campionato Sociale Team Italia DOC</h1>
+    <br>
+    <h1 class="intestazione-piede">Classifica provvisoria</h1>
+</div>
+
+<!--                            CLASSIFICA                                      -->   
+<div>
+<table  id="giocatori" class="classifica-tabella">
+
+    <tr class="classifica-intestazione">
+        <td class="classifica-col1"></td> <!-- posizione -->
+        <td class="classifica-col2">Giocatore</td> 
+        <td class="classifica-col3">Punteggio </td>
+        <td class="classifica-col4">Risultati</td>
+        <td class="classifica-col5"></td>
+        <td class="classifica-col6"> Gironi </td>
+    </tr>
+</table>
+
+</div>
+
+<!--                            SEPARATORE                                      -->   
+<table align="left" width="950px" height="100px">
+        <tr> </tr>
+        <tr> <td> <a href="https://teamitaliadoc.github.io/campionatoSociale2018/index.html">Vai a classifica 2018 </a></td></tr>
+        <tr> </tr>
+    <tr> <td><h1 class="intestazione-gironi">Gironi</h1></td> </tr>
+</table>
+<!--                            GIRONI                                      -->   
+<div>
+    <table  id="gironi" class="gironi-tabella">
+        <tr class="gironi-intestazione">
+            <td class="gironi-col1">Girone</td> 
+            <td class="gironi-col2">Coefficiente</td>
+            <td class="gironi-col3"></td>
+            <td class="gironi-col4">Partite ternimate</td>
+        </tr>
+
+    </table>
+    
+<!--                            IMMAGINE  -  LOGO   -->
+    <table  width="950px" height="50px" class="Powered">
+    <tr>
+        <td></td> 
+    </tr>
+</table>
+
+<table  width="950px"   class="Powered">
+
+    <tr>
+            <td align="left" width="950px">Realizzato da Sandro2116</td> 
+        </tr>
+    </table> 
+
+
+
+    <script type="text/javascript"> 
+        CAMPIONATO.inizializzaGironi();
+    </script>
+</main>
+
+</html>
+
