@@ -21,7 +21,8 @@ CAMPIONATO = {
         stgironi += ',{"index": "11", "nome": "campionato-sociale-team-italia-doc-girone-11", "descrizione" : "Campionato Sociale Team Italia DOC - Girone 11", "coefficiente" : "1", "partiteTernimate" : "0", "partiteTotali" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "12", "nome": "campionato-sociale-team-italia-doc-2018-girone-12", "descrizione" : "Campionato Sociale Team Italia DOC - Girone 12", "coefficiente" : "1", "partiteTernimate" : "0", "partiteTotali" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "13", "nome": "campionato-sociale-team-italia-doc-2018-girone-13", "descrizione" : "Campionato Sociale Team Italia DOC - Girone 13", "coefficiente" : "1", "partiteTernimate" : "0", "partiteTotali" : "0", "risultati" : "{}"}';
-        stgironi += ',{"index": "14", "nome": "campionato-sociale-team-italia-doc-2018-girone-14", "descrizione" : "Campionato Sociale Team Italia DOC - Girone 10", "coefficiente" : "1", "partiteTernimate" : "0", "partiteTotali" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "14", "nome": "campionato-sociale-team-italia-doc-2018-girone-14", "descrizione" : "Campionato Sociale Team Italia DOC - Girone 14", "coefficiente" : "1", "partiteTernimate" : "0", "partiteTotali" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "15", "nome": "campionato-sociale-team-italia-doc-2018-girone-15", "descrizione" : "Campionato Sociale Team Italia DOC - Girone 15", "coefficiente" : "1", "partiteTernimate" : "0", "partiteTotali" : "0", "risultati" : "{}"}';
         stgironi += ']}';
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
