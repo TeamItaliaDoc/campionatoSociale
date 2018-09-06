@@ -45,6 +45,8 @@ CAMPIONATO = {
 
     caricaDati: function()
     {
+        console.log('Inizio caricaDati')
+
 //https://api.chess.com/pub/tournament/campionato-sociale-team-italia-doc-girone-3/1/1
         //Carico i dati di tuti i gironi
         for (var i in CAMPIONATO.gironi.girone) {
@@ -66,38 +68,45 @@ CAMPIONATO = {
                         }
                     }
 
-                    //Se devo ancora ricevere dei dati esco
-                    for (var i in CAMPIONATO.gironi.girone) {
-                        if (CAMPIONATO.gironi.girone[i].load == 0) {
-                            return;
-                        }
-                    }
-
-                    //Se ho degli errori rilancio la funzione ed esco
-                    for (var i in CAMPIONATO.gironi.girone) {
-                        if (CAMPIONATO.gironi.girone[i].load == 1) {
-                            caricaDati();
-                            return;
-                        }
-                    }
-
-                    //Tutti i gironi caricati
-                    CAMPIONATO.calcolaClassifica();
+                    //Controllo se ho caricato tutti i gironi
+                    CAMPIONATO.caricaDatiControllo();
                 })
                 .error(function(jqXhr, textStatus, error) {
                 //Dati ok
-                alert(jqXhr.url);
+                console.log('ERRORE ERRORE')
                     for (var iGirone in CAMPIONATO.gironi.girone) {
-                        if ('https://api.chess.com/pub/tournament/' + CAMPIONATO.gironi.girone[iGirone].nome + '/1/1' == jqXhr.url)
+                        if ('https://api.chess.com/pub/tournament/' + CAMPIONATO.gironi.girone[iGirone].nome + '/1/1' == this.url)
                         {
+                            console.log('RIPRISTINATO')
                             CAMPIONATO.gironi.girone[iGirone].load = 1;
                         }
                     }
+                    //Se ultimo girono devo rilanciare lettura
+                    CAMPIONATO.caricaDatiControllo();
                 });
             }
-            //Attendo altrimenti si potrebbe piantare
-            //setTimeout(500);
         }
+    },
+    caricaDatiControllo: function()
+    {
+        //Se devo ancora ricevere dei dati esco
+        for (var i in CAMPIONATO.gironi.girone) {
+            if (CAMPIONATO.gironi.girone[i].load == 0) {
+                return;
+            }
+        }
+
+        //Se ho degli errori rilancio la funzione ed esco
+        for (var i in CAMPIONATO.gironi.girone) {
+            if (CAMPIONATO.gironi.girone[i].load == 1) {
+                CAMPIONATO.caricaDati();
+                return;
+            }
+        }
+
+        //Tutti i gironi caricati
+        CAMPIONATO.calcolaClassifica();
+
     },
     calcolaClassifica: function()
     {
