@@ -39,6 +39,7 @@ CAMPIONATO = {
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
 
+        console.log("Versione: 1")
 //https://api.chess.com/pub/tournament/campionato-sociale-team-italia-doc-girone-3/1/1
         //Carico i dati di tuti i gironi
         for (var i in CAMPIONATO.gironi.girone) {
