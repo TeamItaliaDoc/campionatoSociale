@@ -5,10 +5,13 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<link rel="stylesheet" href="css/TID.css"/>
+<link rel="stylesheet" href="css/TID.css?dev=' + Math.floor(Math.random() * 100) + '"/>
 <script type="text/javascript" src="js/jquery-2.0.3.js"> </script>
 
 <script>document.write('<script type="text/javascript"  src="js/campionatoSociale2018.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
+<!--
+<script>document.write('<script type="text/javascript"  src="js/campionatoSociale2018.js"\><\/script>');</script>
+-->
 
 </head>
 
@@ -29,7 +32,7 @@
 <div>
     <h1 class="intestazione-titolo">Campionato Sociale Team Italia DOC</h1>
     <br>
-    <h1 class="intestazione-piede">Classifica</h1>
+    <h1 class="intestazione-piede">Classifica 2018</h1>
 </div>
 
 <!--                            CLASSIFICA                                      -->   
@@ -38,13 +41,14 @@
 
     <tr class="classifica-intestazione">
         <td class="classifica-col1"></td> <!-- posizione -->
+        <td class="classifica-col1SEP">  </td>
         <td class="classifica-col2">Giocatore</td> 
         <td class="classifica-col3">Punteggio </td>
         <td class="classifica-col4">Risultati</td>
         <td class="classifica-col5"></td>
         <td class="classifica-col6"> Gironi </td>
     </tr>
-</table>
+        </table>
 
 </div>
 

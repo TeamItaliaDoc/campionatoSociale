@@ -1,6 +1,6 @@
 //METTERE SEMPRE MINUSCOLO
 var elimiati = ["danieletar", "never_walk_alone", "miki1701", "aracine", "jbg12618", "nr051162", "lieissvi", "mastertom2040", "costadeipirati"];
-var posizione = {"N": 0, "pari" : 0,"oldPunti" : 0, "oldVinte" : 0, "oldPerse" : 0, "oldNPartite" : 0}
+var posizione = {"N": 0, "fasciaA" : 0, "fasciaB" : 0, "fasciaC" : 0, "pari" : 0,"oldPunti" : 0, "oldVinte" : 0, "oldPerse" : 0, "oldNPartite" : 0}
 
 CAMPIONATO = {
     gironi: {},
@@ -49,7 +49,6 @@ CAMPIONATO = {
     {
             //Leggo i dati del girone
             $.getJSON(url,function(dataGirone){
-                console.log('carico dati: ' + this);
                 //Carico dati
                 for (var iGirone in CAMPIONATO.gironi.girone) {
                     if ('https://api.chess.com/pub/tournament/' + CAMPIONATO.gironi.girone[iGirone].nome == dataGirone.games[0].tournament)
@@ -66,9 +65,6 @@ CAMPIONATO = {
                 //Tutti i gironi caricati
                 CAMPIONATO.calcolaClassifica();
             }).error(function(jqXhr, textStatus, error) {
-                console.log('-------- CARICA DATI ERRORE ---------------');
-                console.log('-------- CARICA DATI ERRORE ---------------');
-                console.log('-------- CARICA DATI ERRORE ---------------');
                 //è andato in errore ricarico i dati
                 CAMPIONATO.caricaDati(this.url);    
             });
@@ -144,8 +140,6 @@ CAMPIONATO = {
                 CAMPIONATO.scriviTabelle();
             }
         }).error(function(jqXhr, textStatus, error) {
-            console.log('-------- GET AVATAR ERRORE ---------------');
-            console.log('-------- GET AVATAR ERRORE ---------------');
             //è andato in errore ricarico i dati
             CAMPIONATO.getAvatarUrl(this.url);    
         });
@@ -185,7 +179,6 @@ CAMPIONATO = {
     },
     scriviTabelle: function()
     {
-        console.log('inizio scriviTabelle')
         //Tabella classifica
         while (CAMPIONATO.scriviGiocatore());
 
@@ -201,7 +194,6 @@ CAMPIONATO = {
             CAMPIONATO.gironi.girone[i].descrizione + '</a></td><td class="gironi-col">' + CAMPIONATO.gironi.girone[i].inizio + '</td> <td class="gironi-col">' + CAMPIONATO.gironi.girone[i].fine + '</td> ' +
             '<td class="gironi-col">' + CAMPIONATO.gironi.girone[i].coefficiente + '</td> <td class="gironi-col">' + CAMPIONATO.gironi.girone[i].partiteTernimate + ' / 30</td> </tr>');
         }
-        console.log('fine scriviTabelle')
     }
     ,
     scriviGiocatore: function()
@@ -251,9 +243,39 @@ CAMPIONATO = {
             posizione.oldNPartite = newNPartite;
             posizione.pari = 0;
         }
+        //Aggiorno posizioni fascia
+        if (CAMPIONATO.giocatori[username].elo > 1499 &  CAMPIONATO.giocatori[username].elo < 1700)
+            posizione.fasciaA++;
+        if (CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500)
+            posizione.fasciaB++;
+        if (CAMPIONATO.giocatori[username].elo < 1300)
+            posizione.fasciaC++;
+        //La posizione potrebbe contenere delle immagini
+        var stPosizione = '#' + posizione.N;
+        //Assoluti
+        if (posizione.N == 1)
+            stPosizione = '<img class="classifica-assoluto1" src="img/assoluto1.png">' + stPosizione + ' Assoluto';
+        if (posizione.N == 2)
+            stPosizione = '<img class="classifica-assoluto2" src="img/assoluto2.png">' + stPosizione + ' Assoluto';
+        if (posizione.N == 3)
+            stPosizione = '<img class="classifica-podio" src="img/assoluto3.png">' + stPosizione + ' Assoluto';
+        if (posizione.N == 4)
+            stPosizione = '<img class="classifica-podio" src="img/assoluto4.png">' + stPosizione + ' Assoluto';
+        if (posizione.N == 5)
+            stPosizione = '<img class="classifica-podio" src="img/assoluto5.png">' + stPosizione + ' Assoluto';
+        //Fascia A
+        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo > 1499 &  CAMPIONATO.giocatori[username].elo < 1700 & posizione.fasciaA < 4)
+            stPosizione = '<img class="classifica-podio" src="img/fasciaA' + posizione.fasciaA + '.png">#' + posizione.fasciaA + ' Fascia A';
+        //Fascia B
+        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500 & posizione.fasciaB < 4)
+            stPosizione = '<img class="classifica-podio" src="img/fasciaB' + posizione.fasciaB + '.png">#' + posizione.fasciaB + ' Fascia B';
+        //Fascia C
+        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo < 1300 & posizione.fasciaC  < 4)
+            stPosizione = '<img class="classifica-podio" src="img/fasciaC' + posizione.fasciaC + '.png">#' + posizione.fasciaC + ' Fascia C';
         //stampo riga    
         $("#giocatori").append('<tr class="classifica-giocatori">' +
-            '<td class="classifica-col1">#' + posizione.N + '</td>' + 
+            '<td class="classifica-col1">' + stPosizione + '</td>' +  
+            '<td class="classifica-col1SEP"></td>' + 
             '<td class="classifica-col2">' +
             '    <table><tr>' +
             '        <td>' +
@@ -262,7 +284,6 @@ CAMPIONATO = {
             '    <td width=7px></td>' +
             '    <td><div>' +
             '            <a class="username" href="' + CAMPIONATO.giocatori[username].id + '" target=”_blank”> ' + CAMPIONATO.giocatori[username].displayName + '</a>' +
-            //'            <img class="classifica-country" src="' + CAMPIONATO.giocatori[username].country + '">' +
             '        </div> <div>  (' + CAMPIONATO.giocatori[username].elo + ') </div>' +
             '        </td>' +    
             '    </tr></table>' +
@@ -289,7 +310,6 @@ CAMPIONATO = {
         CAMPIONATO.giocatori[username].displayName = apiUsername;
         CAMPIONATO.giocatori[username].id = 'https://www.chess.com/member/' + username;
         CAMPIONATO.giocatori[username].avatar = '';
-        //CAMPIONATO.giocatori[username].country = '';
         CAMPIONATO.giocatori[username].elo = 0;
         CAMPIONATO.giocatori[username].punteggio = 0;
         CAMPIONATO.giocatori[username].vinte = 0;
@@ -310,6 +330,3 @@ CAMPIONATO = {
  }
 
 
-     /*
-      CLASSIFICA: MichaelGallo (5,5) punti 7,48. Teate70 (4,5) punti 6,12. TempestaPerfetta87 (4) punti 5,44. Ricordo 
-      */
