@@ -70,30 +70,34 @@
 }
 
 .classifica-col1 {
-    width:40px;
+    width:80px;
     text-align:center;
 }   
 .classifica-col1SEP {
     width:10px;
 }   
 .classifica-col2 {
-    width:300px;
+    width:220px;
     text-align:left;
 }   
 .classifica-col3 {
-    width:150px;
+    width:120px;
     text-align:left;
 }   
 .classifica-col4 {
-    width:150px;
+    width:130px;
     text-align:left;
 }   
 .classifica-col5 {
-    width:20px;
+    width:100px;
     text-align:left;
 }   
 .classifica-col6 {
-    width:280px;
+    width:20px;
+    text-align:left;
+}   
+.classifica-col7 {
+    width:270px;
     text-align:left;
 }   
 .classifica-avatar {

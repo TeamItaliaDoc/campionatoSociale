@@ -1,6 +1,6 @@
 //METTERE SEMPRE MINUSCOLO
 var elimiati = ["danieletar", "never_walk_alone", "miki1701", "aracine", "jbg12618", "nr051162", "lieissvi", "mastertom2040", "costadeipirati"];
-var posizione = {"N": 0, "fasciaA" : 0, "fasciaB" : 0, "fasciaC" : 0, "pari" : 0,"oldPunti" : 0, "oldVinte" : 0, "oldPerse" : 0, "oldNPartite" : 0}
+var posizione = {"N": 0, "fasciaB" : 0, "fasciaC" : 0, "pari" : 0,"oldPunti" : 0, "oldVinte" : 0, "oldPerse" : 0, "oldNPartite" : 0}
 
 CAMPIONATO = {
     gironi: {},
@@ -34,6 +34,8 @@ CAMPIONATO = {
         stgironi += ',{"index": "22", "nome": "campionato-sociale-team-italia-doc-2018-girone-22", "descrizione" : "22", "inizio" : "31/08/2018", "fine" : "", "coefficiente" : "1.42", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "23", "nome": "campionato-sociale-team-italia-doc-2018-girone-23", "descrizione" : "23", "inizio" : "03/09/2018", "fine" : "", "coefficiente" : "1.06", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "24", "nome": "campionato-sociale-team-italia-doc-2018-girone-24", "descrizione" : "24", "inizio" : "04/09/2018", "fine" : "", "coefficiente" : "0.90", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "25", "nome": "campionato-sociale-team-italia-doc-2018-girone-25", "descrizione" : "25", "inizio" : "07/09/2018", "fine" : "", "coefficiente" : "1.44", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "26", "nome": "campionato-sociale-team-italia-doc-2018-girone-26", "descrizione" : "26", "inizio" : "08/09/2018", "fine" : "", "coefficiente" : "1.46", "partiteTernimate" : "0", "risultati" : "{}"}';
         //stgironi += ',{"index": "", "nome": "campionato-sociale-team-italia-doc-2018-girone-", "descrizione" : "", "inizio" : "", "fine" : "", "coefficiente" : "1.", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ']}';
 
@@ -84,21 +86,24 @@ CAMPIONATO = {
                     CAMPIONATO.gironi.girone[i].partiteTernimate ++;
                     //Aggiorno punti bianco
                     //Calcolo punteggio se sono state fatte più di tre mosse.
+                    var mosseOK = true; 
                     png = CAMPIONATO.gironi.girone[i].risultati.games[iGames].pgn;
                     if (png.indexOf('4.') > -1)
-                    {
-                        png = png.substring(png.indexOf('WhiteElo')+10);
-                        elo = png.substring(0, png.indexOf('"'));
-                        CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].white, elo, i);
-                    }
+                        mosseOk = true
+                    else
+                        mosseOk = false;
+                    png = png.substring(png.indexOf('WhiteElo')+10);
+                    elo = png.substring(0, png.indexOf('"'));
+                    CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].white, elo, i, mosseOk);
                     //Aggiorno punti nero
                     png = CAMPIONATO.gironi.girone[i].risultati.games[iGames].pgn;
                     if (png.indexOf('3.') > -1)
-                    {
-                        png = png.substring(png.indexOf('BlackElo')+10);
-                        elo = png.substring(0, png.indexOf('"'));
-                        CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].black, elo, i);
-                    }
+                        mosseOk = true
+                    else
+                        mosseOk = false;
+                    png = png.substring(png.indexOf('BlackElo')+10);
+                    elo = png.substring(0, png.indexOf('"'));
+                    CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].black, elo, i, mosseOk);
                 }
             }
         }
@@ -156,6 +161,9 @@ CAMPIONATO = {
         };
         //Aggiorno sempre elo
         CAMPIONATO.giocatori[risultato.username.toLowerCase()].elo = elo;
+        //Se non sono state fatte le 3 mosse non aggiorno punti
+        if (! mosseOk)
+            return;
         //Calcolo punteggio
         if (risultato.result == 'win')
         {
@@ -185,7 +193,6 @@ CAMPIONATO = {
 
         //Tabella gironi
         for (var i in CAMPIONATO.gironi.girone) {
-            console.log('inizio scriviTabelle; ' + CAMPIONATO.gironi.girone[i].nome)
             //Se ho terminato tutte le partite scrivo in verde
             var colore = "";
             if (CAMPIONATO.gironi.girone[i].partiteTernimate == 30)
@@ -241,37 +248,43 @@ CAMPIONATO = {
             posizione.oldVinte = newVinte;
             posizione.oldPerse = newPerse;
             posizione.oldNPartite = newNPartite;
+            //Aggiorno posizioni fascia
+            if (CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500)
+                posizione.fasciaB += posizione.pari + 1;
+            if (CAMPIONATO.giocatori[username].elo < 1300)
+                posizione.fasciaC += posizione.pari + 1;
+            //Azzero pari
             posizione.pari = 0;
         }
-        //Aggiorno posizioni fascia
-        if (CAMPIONATO.giocatori[username].elo > 1499 &  CAMPIONATO.giocatori[username].elo < 1700)
-            posizione.fasciaA++;
-        if (CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500)
-            posizione.fasciaB++;
-        if (CAMPIONATO.giocatori[username].elo < 1300)
-            posizione.fasciaC++;
         //La posizione potrebbe contenere delle immagini
         var stPosizione = '#' + posizione.N;
         //Assoluti
         if (posizione.N == 1)
-            stPosizione = '<img class="classifica-assoluto1" src="img/assoluto1.png">' + stPosizione + ' Assoluto';
+            stPosizione = '<img class="classifica-assoluto1" src="img/assoluto1.png"><BR>' + stPosizione + ' Assoluto';
         if (posizione.N == 2)
-            stPosizione = '<img class="classifica-assoluto2" src="img/assoluto2.png">' + stPosizione + ' Assoluto';
+            stPosizione = '<img class="classifica-assoluto2" src="img/assoluto2.png"><BR>' + stPosizione + ' Assoluto';
         if (posizione.N == 3)
-            stPosizione = '<img class="classifica-podio" src="img/assoluto3.png">' + stPosizione + ' Assoluto';
+            stPosizione = '<img class="classifica-podio" src="img/assoluto3.png"><BR>' + stPosizione + ' Assoluto';
         if (posizione.N == 4)
-            stPosizione = '<img class="classifica-podio" src="img/assoluto4.png">' + stPosizione + ' Assoluto';
+            stPosizione = '<img class="classifica-podio" src="img/assoluto4.png"><BR>' + stPosizione + ' Assoluto';
         if (posizione.N == 5)
-            stPosizione = '<img class="classifica-podio" src="img/assoluto5.png">' + stPosizione + ' Assoluto';
-        //Fascia A
-        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo > 1499 &  CAMPIONATO.giocatori[username].elo < 1700 & posizione.fasciaA < 4)
-            stPosizione = '<img class="classifica-podio" src="img/fasciaA' + posizione.fasciaA + '.png">#' + posizione.fasciaA + ' Fascia A';
+            stPosizione = '<img class="classifica-podio" src="img/assoluto5.png"><BR>' + stPosizione + ' Assoluto';
         //Fascia B
-        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500 & posizione.fasciaB < 4)
-            stPosizione = '<img class="classifica-podio" src="img/fasciaB' + posizione.fasciaB + '.png">#' + posizione.fasciaB + ' Fascia B';
+        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500)
+        {
+            if (posizione.fasciaB < 4)
+                stPosizione = '<img class="classifica-podio" src="img/fasciaB' + posizione.fasciaB + '.png"><BR>#' + posizione.fasciaB + ' Fascia B';
+            else
+                stPosizione += '<span style="font-size: 10px;"><BR>#' + posizione.fasciaB + ' Fascia B</span>';
+        }
         //Fascia C
-        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo < 1300 & posizione.fasciaC  < 4)
-            stPosizione = '<img class="classifica-podio" src="img/fasciaC' + posizione.fasciaC + '.png">#' + posizione.fasciaC + ' Fascia C';
+        if (posizione.N > 5 & CAMPIONATO.giocatori[username].elo < 1300)
+        { 
+            if (posizione.fasciaC  < 4)
+                stPosizione = '<img class="classifica-podio" src="img/fasciaC' + posizione.fasciaC + '.png"><BR>#' + posizione.fasciaC + ' Fascia C';
+            else
+                stPosizione += '<span style="font-size: 10px;"><br>#' + posizione.fasciaC + ' Fascia C</span>';
+        }
         //stampo riga    
         $("#giocatori").append('<tr class="classifica-giocatori">' +
             '<td class="classifica-col1">' + stPosizione + '</td>' +  
@@ -294,7 +307,8 @@ CAMPIONATO = {
                 '<span class="game-draw">' +  CAMPIONATO.giocatori[username].patte + ' D</span>' +
             '</td>' +
             '<td class="classifica-col5"></td>' +
-            '<td class="classifica-col6">' + CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2)  + '</td>' +
+            '<td class="classifica-col6"></td>' +
+            '<td class="classifica-col7">' + CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2)  + '</td>' +
             '</tr>'
             );
 
@@ -316,7 +330,10 @@ CAMPIONATO = {
         CAMPIONATO.giocatori[username].perse = 0;
         CAMPIONATO.giocatori[username].patte = 0;
         CAMPIONATO.giocatori[username].gironi = '';
-        CAMPIONATO.giocatori[username].nTimeout = 0;
+        CAMPIONATO.giocatori[username].nTimeoutWin = 0;
+        CAMPIONATO.giocatori[username].nTimeoutWin3 = 0;
+        CAMPIONATO.giocatori[username].nTimeoutLost = 0;
+        CAMPIONATO.giocatori[username].nTimeoutLost3 = 0;
         CAMPIONATO.giocatori[username].stampato = false;
         $.getJSON('https://api.chess.com/pub/player/' + username,function(dataAvatar){
             if (dataAvatar.avatar) {
