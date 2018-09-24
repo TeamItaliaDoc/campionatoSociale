@@ -89,11 +89,11 @@
     text-align:left;
 }   
 .classifica-col5 {
-    width:100px;
+    width:110px;
     text-align:left;
 }   
 .classifica-col6 {
-    width:20px;
+    width:10px;
     text-align:left;
 }   
 .classifica-col7 {
@@ -127,7 +127,7 @@
 .game-win {
     color: #4b7636;
 }
-.game-loss {
+.game-lost {
     color: #e6912c;
 }
 .game-draw {

@@ -1,11 +1,16 @@
+﻿//METTERE SEMPRE MINUSCOLO
 //METTERE SEMPRE MINUSCOLO
-var elimiati = ["danieletar", "never_walk_alone", "miki1701", "aracine", "jbg12618", "nr051162", "lieissvi", "mastertom2040", "costadeipirati"];
+//METTERE SEMPRE MINUSCOLO
+//METTERE SEMPRE MINUSCOLO
+var elimiati = ["danieletar", "never_walk_alone", "miki1701", "aracine", "jbg12618", "nr051162", "lieissvi", "mastertom2040", "costadeipirati","ricci888"];
 var posizione = {"N": 0, "fasciaB" : 0, "fasciaC" : 0, "pari" : 0,"oldPunti" : 0, "oldVinte" : 0, "oldPerse" : 0, "oldNPartite" : 0}
+var fineTorneo = new Date("2019-01-01"); 
 
 CAMPIONATO = {
     gironi: {},
     giocatori: [],
     scriviTabelleRun: false,
+
 
     inizializzaGironi: function()
     { 
@@ -19,7 +24,7 @@ CAMPIONATO = {
         stgironi += ',{"index": "7", "nome": "campionato-sociale-team-italia-doc-girone-7", "descrizione" : "7", "inizio" : "18/07/2018", "fine" : "12/08/2018", "coefficiente" : "1.24", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "8", "nome": "campionato-sociale-team-italia-doc-girone-8", "descrizione" : "8", "inizio" : "24/07/2018", "fine" : "", "coefficiente" : "1.45", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "9", "nome": "campionato-sociale-team-italia-doc-girone-9", "descrizione" : "9", "inizio" : "25/07/2018", "fine" : "", "coefficiente" : "1.35", "partiteTernimate" : "0", "risultati" : "{}"}';
-        stgironi += ',{"index": "10", "nome": "campionato-sociale-team-italia-doc-girone-10", "descrizione" : "10", "inizio" : "28/07/2018", "fine" : "", "coefficiente" : "1.06", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "10", "nome": "campionato-sociale-team-italia-doc-girone-10", "descrizione" : "10", "inizio" : "28/07/2018", "fine" : "13/09/2018", "coefficiente" : "1.17", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "11", "nome": "campionato-sociale-team-italia-doc-girone-11", "descrizione" : "11", "inizio" : "31/07/2018", "fine" : "", "coefficiente" : "1.33", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "12", "nome": "campionato-sociale-team-italia-doc-2018-girone-12", "descrizione" : "12", "inizio" : "06/08/2018", "fine" : "", "coefficiente" : "1.26", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "13", "nome": "campionato-sociale-team-italia-doc-2018-girone-13", "descrizione" : "13", "inizio" : "09/08/2018", "fine" : "", "coefficiente" : "1.39", "partiteTernimate" : "0", "risultati" : "{}"}';
@@ -36,12 +41,18 @@ CAMPIONATO = {
         stgironi += ',{"index": "24", "nome": "campionato-sociale-team-italia-doc-2018-girone-24", "descrizione" : "24", "inizio" : "04/09/2018", "fine" : "", "coefficiente" : "0.90", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "25", "nome": "campionato-sociale-team-italia-doc-2018-girone-25", "descrizione" : "25", "inizio" : "07/09/2018", "fine" : "", "coefficiente" : "1.44", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "26", "nome": "campionato-sociale-team-italia-doc-2018-girone-26", "descrizione" : "26", "inizio" : "08/09/2018", "fine" : "", "coefficiente" : "1.46", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "27", "nome": "campionato-sociale-team-italia-doc-2018-girone-27", "descrizione" : "27", "inizio" : "11/09/2018", "fine" : "", "coefficiente" : "1.07", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "28", "nome": "campionato-sociale-team-italia-doc-2018-girone-28", "descrizione" : "28", "inizio" : "13/09/2018", "fine" : "", "coefficiente" : "1.23", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "29", "nome": "campionato-sociale-team-italia-doc-2018-girone-29", "descrizione" : "29", "inizio" : "14/09/2018", "fine" : "", "coefficiente" : "1.48", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "30", "nome": "campionato-sociale-team-italia-doc-2018-girone-30", "descrizione" : "30", "inizio" : "16/09/2018", "fine" : "", "coefficiente" : "1.45", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "31", "nome": "campionato-sociale-team-italia-doc-2018-girone-31", "descrizione" : "31", "inizio" : "17/09/2018", "fine" : "", "coefficiente" : "1.40", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "32", "nome": "campionato-sociale-team-italia-doc-2018-girone-32", "descrizione" : "32", "inizio" : "21/09/2018", "fine" : "", "coefficiente" : "1.40", "partiteTernimate" : "0", "risultati" : "{}"}';
         //stgironi += ',{"index": "", "nome": "campionato-sociale-team-italia-doc-2018-girone-", "descrizione" : "", "inizio" : "", "fine" : "", "coefficiente" : "1.", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ']}';
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
 
-//https://api.chess.com/pub/tournament/campionato-sociale-team-italia-doc-girone-3/1/1
+//https://api.chess.com/pub/tournament/campionato-sociale-team-italia-doc-girone-1/1/1
         //Carico i dati di tuti i gironi
         for (var i in CAMPIONATO.gironi.girone) {
             CAMPIONATO.caricaDati('https://api.chess.com/pub/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/1/1');
@@ -78,33 +89,55 @@ CAMPIONATO = {
         var png = '';
         //Per tutti i gironi
         for (var i in CAMPIONATO.gironi.girone) {
+
+            //Aggiorno i gironi del giocatori
+            for (var iPlayer in CAMPIONATO.gironi.girone[i].risultati.players) {
+                var username = CAMPIONATO.gironi.girone[i].risultati.players[iPlayer].username;
+                //Se non eliminato
+                if (elimiati.indexOf(username.toLowerCase()) == -1) {
+                    //Se non ho trovato giocatore lo aggiungo
+                    if (!CAMPIONATO.giocatori[username.toLowerCase()])
+                        CAMPIONATO.creaGiocatore(username);
+                    //Se non ancora presente aggiungo il girone al giocatore
+                    if (CAMPIONATO.giocatori[username.toLowerCase()].gironi.indexOf(CAMPIONATO.gironi.girone[i].nome) < 0)
+                        CAMPIONATO.giocatori[username.toLowerCase()].gironi += '<a href="https://www.chess.com/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/pairings/" target=”_blank”>' + CAMPIONATO.gironi.girone[i].index + '</a> - ';
+                }
+            }
+
             //Per tutte le partite
             for (var iGames in CAMPIONATO.gironi.girone[i].risultati.games) {
-                //Se non definita turn la partia è ancora finita
-                if (! CAMPIONATO.gironi.girone[i].risultati.games[iGames].turn) {
-                    //Aggiorno partite finite
-                    CAMPIONATO.gironi.girone[i].partiteTernimate ++;
-                    //Aggiorno punti bianco
-                    //Calcolo punteggio se sono state fatte più di tre mosse.
-                    var mosseOK = true; 
-                    png = CAMPIONATO.gironi.girone[i].risultati.games[iGames].pgn;
-                    if (png.indexOf('4.') > -1)
-                        mosseOk = true
-                    else
-                        mosseOk = false;
-                    png = png.substring(png.indexOf('WhiteElo')+10);
-                    elo = png.substring(0, png.indexOf('"'));
-                    CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].white, elo, i, mosseOk);
-                    //Aggiorno punti nero
-                    png = CAMPIONATO.gironi.girone[i].risultati.games[iGames].pgn;
-                    if (png.indexOf('3.') > -1)
-                        mosseOk = true
-                    else
-                        mosseOk = false;
-                    png = png.substring(png.indexOf('BlackElo')+10);
-                    elo = png.substring(0, png.indexOf('"'));
-                    CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].black, elo, i, mosseOk);
-                }
+                //Se non definita end_time la partita non è finita
+                if (! CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time )
+                    continue; 
+                
+                //controllo se non ha superato la data di fine torneo
+                var myObj = $.parseJSON('{"date_created":"' + CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time + '"}'),
+                myDate = new Date(1000*myObj.date_created);
+                if (myDate > fineTorneo)
+                   continue;    
+                
+                //Aggiorno partite finite
+                CAMPIONATO.gironi.girone[i].partiteTernimate ++;
+                //Aggiorno punti bianco
+                //Calcolo punteggio se sono state fatte più di tre mosse.
+                var mosseOK = true; 
+                png = CAMPIONATO.gironi.girone[i].risultati.games[iGames].pgn;
+                if (png.indexOf('4.') > -1)
+                    mosseOk = true
+                else
+                    mosseOk = false;
+                png = png.substring(png.indexOf('WhiteElo')+10);
+                elo = png.substring(0, png.indexOf('"'));
+                CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].white, elo, i, mosseOk, CAMPIONATO.gironi.girone[i].risultati.games[iGames].black);
+                //Aggiorno punti nero
+                png = CAMPIONATO.gironi.girone[i].risultati.games[iGames].pgn;
+                if (png.indexOf('3.') > -1)
+                    mosseOk = true
+                else
+                    mosseOk = false;
+                png = png.substring(png.indexOf('BlackElo')+10);
+                elo = png.substring(0, png.indexOf('"'));
+                CAMPIONATO.setPunti(CAMPIONATO.gironi.girone[i].risultati.games[iGames].black, elo, i, mosseOk, CAMPIONATO.gironi.girone[i].risultati.games[iGames].white);
             }
         }
 
@@ -150,15 +183,30 @@ CAMPIONATO = {
         });
 
     },
-    setPunti : function(risultato, elo, index) {
+    setPunti : function(risultato, elo, index, mosseOk, avversario) {
+        //Calcolo sempre timeout
+        if (risultato.result == 'timeout')
+        {
+            //se non è eliminato segno time out perso
+            if (elimiati.indexOf(risultato.username.toLowerCase()) == -1)
+            {
+                if (mosseOk)
+                    CAMPIONATO.giocatori[risultato.username.toLowerCase()].nTimeoutLost ++
+                else
+                    CAMPIONATO.giocatori[risultato.username.toLowerCase()].nTimeoutLost3 ++;
+            }
+            //Assegno al vincitore
+            if (elimiati.indexOf(avversario.username.toLowerCase()) == -1)
+            {
+                if (mosseOk)
+                    CAMPIONATO.giocatori[avversario.username.toLowerCase()].nTimeoutWin ++
+                else
+                    CAMPIONATO.giocatori[avversario.username.toLowerCase()].nTimeoutWin3 ++;
+            }
+    }
         //Se eliminato esco
         if (elimiati.indexOf(risultato.username.toLowerCase()) > -1)
             return;
-        //Se non ho trovato giocatore lo aggiungo
-        if (!CAMPIONATO.giocatori[risultato.username.toLowerCase()])
-        {
-            CAMPIONATO.creaGiocatore(risultato.username);
-        };
         //Aggiorno sempre elo
         CAMPIONATO.giocatori[risultato.username.toLowerCase()].elo = elo;
         //Se non sono state fatte le 3 mosse non aggiorno punti
@@ -179,10 +227,6 @@ CAMPIONATO = {
                 //Perso      
                 CAMPIONATO.giocatori[risultato.username.toLowerCase()].perse ++;
             }   
-        }
-        if (CAMPIONATO.giocatori[risultato.username.toLowerCase()].gironi.indexOf(CAMPIONATO.gironi.girone[index].nome) < 0)
-        {
-            CAMPIONATO.giocatori[risultato.username.toLowerCase()].gironi += '<a href="https://www.chess.com/tournament/' + CAMPIONATO.gironi.girone[index].nome + '/pairings/" target=”_blank”>' + CAMPIONATO.gironi.girone[index].index + '</a> - ';
         }
     },
     scriviTabelle: function()
@@ -285,6 +329,14 @@ CAMPIONATO = {
             else
                 stPosizione += '<span style="font-size: 10px;"><br>#' + posizione.fasciaC + ' Fascia C</span>';
         }
+        //Prepara riga per timeout
+        var stTimeout = '';
+        if (CAMPIONATO.giocatori[username].nTimeoutLost > 0 || CAMPIONATO.giocatori[username].nTimeoutLost3 > 0 ||
+            CAMPIONATO.giocatori[username].nTimeoutWin > 0 || CAMPIONATO.giocatori[username].nTimeoutWin3 > 0)
+        {
+            stTimeout = '<span class="game-win">' +  CAMPIONATO.giocatori[username].nTimeoutWin + ' - '  + CAMPIONATO.giocatori[username].nTimeoutWin3 + ' W</span> / '+
+                        '<span class="game-lost">' +  CAMPIONATO.giocatori[username].nTimeoutLost + ' - '  + CAMPIONATO.giocatori[username].nTimeoutLost3 + ' L</span>';
+        }
         //stampo riga    
         $("#giocatori").append('<tr class="classifica-giocatori">' +
             '<td class="classifica-col1">' + stPosizione + '</td>' +  
@@ -303,10 +355,10 @@ CAMPIONATO = {
             '</td>' +
             '<td class="classifica-col3">' + CAMPIONATO.giocatori[username].punteggio.toFixed(2) +'</td>' +
             '<td class="classifica-col4"> <span class="game-win">' +  CAMPIONATO.giocatori[username].vinte + ' W</span> /'+
-                '<span class="game-loss">' +  CAMPIONATO.giocatori[username].perse + ' L</span> /' +
+                '<span class="game-lost">' +  CAMPIONATO.giocatori[username].perse + ' L</span> /' +
                 '<span class="game-draw">' +  CAMPIONATO.giocatori[username].patte + ' D</span>' +
             '</td>' +
-            '<td class="classifica-col5"></td>' +
+            '<td class="classifica-col5">' +stTimeout + '</td>' +
             '<td class="classifica-col6"></td>' +
             '<td class="classifica-col7">' + CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2)  + '</td>' +
             '</tr>'
