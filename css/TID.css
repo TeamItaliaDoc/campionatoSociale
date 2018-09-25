@@ -89,7 +89,7 @@
     text-align:left;
 }   
 .classifica-col5 {
-    width:110px;
+    width:90px;
     text-align:left;
 }   
 .classifica-col6 {
@@ -97,12 +97,17 @@
     text-align:left;
 }   
 .classifica-col7 {
-    width:270px;
+    width:290px;
     text-align:left;
 }   
 .classifica-avatar {
     width:35px;
     height:35px;
+}   
+.classifica-cartellino {
+    width:25px;
+    height:35px;
+    margin-left: 15px;
 }   
 .classifica-country {
     width:16px;

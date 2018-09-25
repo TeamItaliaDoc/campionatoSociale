@@ -1,4 +1,7 @@
-﻿//METTERE SEMPRE MINUSCOLO
+﻿
+//timeout punteggio Togliere calcolo time out totale
+
+//METTERE SEMPRE MINUSCOLO
 //METTERE SEMPRE MINUSCOLO
 //METTERE SEMPRE MINUSCOLO
 //METTERE SEMPRE MINUSCOLO
@@ -101,6 +104,8 @@ CAMPIONATO = {
                     //Se non ancora presente aggiungo il girone al giocatore
                     if (CAMPIONATO.giocatori[username.toLowerCase()].gironi.indexOf(CAMPIONATO.gironi.girone[i].nome) < 0)
                         CAMPIONATO.giocatori[username.toLowerCase()].gironi += '<a href="https://www.chess.com/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/pairings/" target=”_blank”>' + CAMPIONATO.gironi.girone[i].index + '</a> - ';
+                    //Azzero contatori giocatore x girone
+                    CAMPIONATO.giocatori[username.toLowerCase()].nTimeoutGirone = 0;
                 }
             }
 
@@ -190,11 +195,18 @@ CAMPIONATO = {
             //se non è eliminato segno time out perso
             if (elimiati.indexOf(risultato.username.toLowerCase()) == -1)
             {
+                /*timeout punteggio 
                 if (mosseOk)
                     CAMPIONATO.giocatori[risultato.username.toLowerCase()].nTimeoutLost ++
                 else
                     CAMPIONATO.giocatori[risultato.username.toLowerCase()].nTimeoutLost3 ++;
+                */
+                //Aggiorno perse timeout per cartellini
+                CAMPIONATO.giocatori[risultato.username.toLowerCase()].nTimeoutGirone ++;
+                if (CAMPIONATO.giocatori[risultato.username.toLowerCase()].nTimeoutGirone == 2)
+                    CAMPIONATO.giocatori[risultato.username.toLowerCase()].nTimeoutGiallo ++;
             }
+            /*  timeout punteggio   -- Togliere parametro avversario
             //Assegno al vincitore
             if (elimiati.indexOf(avversario.username.toLowerCase()) == -1)
             {
@@ -203,6 +215,7 @@ CAMPIONATO = {
                 else
                     CAMPIONATO.giocatori[avversario.username.toLowerCase()].nTimeoutWin3 ++;
             }
+            */
     }
         //Se eliminato esco
         if (elimiati.indexOf(risultato.username.toLowerCase()) > -1)
@@ -234,7 +247,8 @@ CAMPIONATO = {
         //Tabella classifica
         while (CAMPIONATO.scriviGiocatore());
 
-
+        //In ultimo scrivo giocatori eliminati
+        CAMPIONATO.scriviEliminati();
         //Tabella gironi
         for (var i in CAMPIONATO.gironi.girone) {
             //Se ho terminato tutte le partite scrivo in verde
@@ -279,6 +293,14 @@ CAMPIONATO = {
             return false;
         }
 
+        //Cartellino rosso. Lo considero stampato.
+        //   verrà stampato in stampaEliminati
+        if (CAMPIONATO.giocatori[username].nTimeoutGiallo > 1)
+        {
+            CAMPIONATO.giocatori[username].stampato = true;
+            return true;
+        }
+
         //Controllo se sono pari
         if ((newPunteggio == posizione.oldPunti) &
             (newVinte == posizione.oldVinte) &
@@ -293,15 +315,16 @@ CAMPIONATO = {
             posizione.oldPerse = newPerse;
             posizione.oldNPartite = newNPartite;
             //Aggiorno posizioni fascia
-            if (CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500)
+            if (CAMPIONATO.giocatori[username].elo > 1399 &  CAMPIONATO.giocatori[username].elo < 1700)
                 posizione.fasciaB += posizione.pari + 1;
-            if (CAMPIONATO.giocatori[username].elo < 1300)
+            if (CAMPIONATO.giocatori[username].elo < 1400)
                 posizione.fasciaC += posizione.pari + 1;
             //Azzero pari
             posizione.pari = 0;
         }
         //La posizione potrebbe contenere delle immagini
         var stPosizione = '#' + posizione.N;
+        /*  Non visualizzo immagine 
         //Assoluti
         if (posizione.N == 1)
             stPosizione = '<img class="classifica-assoluto1" src="img/assoluto1.png"><BR>' + stPosizione + ' Assoluto';
@@ -329,15 +352,31 @@ CAMPIONATO = {
             else
                 stPosizione += '<span style="font-size: 10px;"><br>#' + posizione.fasciaC + ' Fascia C</span>';
         }
-        //Prepara riga per timeout
-        var stTimeout = '';
+        */
+       if (CAMPIONATO.giocatori[username].elo > 1399 &  CAMPIONATO.giocatori[username].elo < 1700)
+       {
+            stPosizione += '<span style="font-size: 10px;"><BR>#' + posizione.fasciaB + ' Fascia B</span>';
+       }
+       //Fascia C
+       if (CAMPIONATO.giocatori[username].elo < 1400)
+       { 
+            stPosizione += '<span style="font-size: 10px;"><br>#' + posizione.fasciaC + ' Fascia C</span>';
+       }
+       //----------------- FINE POSIZIONE SENZA IMMAGINI
+
+       //Prepara riga per timeout
+       var stTimeout = '';
+       /* timeout punti
         if (CAMPIONATO.giocatori[username].nTimeoutLost > 0 || CAMPIONATO.giocatori[username].nTimeoutLost3 > 0 ||
             CAMPIONATO.giocatori[username].nTimeoutWin > 0 || CAMPIONATO.giocatori[username].nTimeoutWin3 > 0)
         {
             stTimeout = '<span class="game-win">' +  CAMPIONATO.giocatori[username].nTimeoutWin + ' - '  + CAMPIONATO.giocatori[username].nTimeoutWin3 + ' W</span> / '+
                         '<span class="game-lost">' +  CAMPIONATO.giocatori[username].nTimeoutLost + ' - '  + CAMPIONATO.giocatori[username].nTimeoutLost3 + ' L</span>';
         }
-        //stampo riga    
+        */
+        if (CAMPIONATO.giocatori[username].nTimeoutGiallo == 1)
+            stTimeout = '<img class="classifica-cartellino" src="img/giallo.png">';
+       //stampo riga    
         $("#giocatori").append('<tr class="classifica-giocatori">' +
             '<td class="classifica-col1">' + stPosizione + '</td>' +  
             '<td class="classifica-col1SEP"></td>' + 
@@ -368,6 +407,60 @@ CAMPIONATO = {
             CAMPIONATO.giocatori[username].stampato = true;
             return true;
     },
+    scriviEliminati: function()
+    {
+        //Cerco giocatore con punteggio più alto
+        var username = "";
+        var newPunteggio = -1;
+        var newVinte = -1;
+        var newPerse = -1;
+        var newNPartite = -1;
+        var giocatore;
+        for (var i in CAMPIONATO.giocatori) {
+            giocatore = CAMPIONATO.giocatori[i];
+        
+            //se da stampare
+            var daStampare = false;
+
+            //Prepara riga per timeout
+            var stTimeout = '';
+            if (giocatore.nTimeoutGiallo > 1)
+            {
+                stTimeout = '<img class="classifica-cartellino" src="img/rosso.png">';
+                daStampare = true;
+            }
+
+            //stampo riga    
+            if (daStampare)
+            {
+                $("#giocatori").append('<tr class="classifica-giocatori">' +
+                    '<td class="classifica-col1"></td>' +  
+                    '<td class="classifica-col1SEP"></td>' + 
+                    '<td class="classifica-col2">' +
+                    '    <table><tr>' +
+                    '            <td>' +
+                    '            <img class="classifica-avatar" src="' + giocatore.avatar + '">' +
+                    '    </td>' +
+                    '    <td width=7px></td>' +
+                    '    <td><div>' +
+                    '            <a class="username" href="' + giocatore.id + '" target=”_blank”> ' + giocatore.displayName + '</a>' +
+                    '        </div> <div>  (' + giocatore.elo + ') </div>' +
+                    '        </td>' +    
+                    '    </tr></table>' +
+                    '</td>' +
+                    '<td class="classifica-col3">' + giocatore.punteggio.toFixed(2) +'</td>' +
+                    '<td class="classifica-col4"> <span class="game-win">' +  giocatore.vinte + ' W</span> /'+
+                    '<span class="game-lost">' +  giocatore.perse + ' L</span> /' +
+                    '<span class="game-draw">' +  giocatore.patte + ' D</span>' +
+                    '</td>' +
+                    '<td class="classifica-col5">' +stTimeout + '</td>' +
+                    '<td class="classifica-col6"></td>' +
+                    '<td class="classifica-col7">' + giocatore.gironi.substr(0, giocatore.gironi.length -2)  + '</td>' +
+                    '</tr>'
+                );
+            }
+        }
+    },
     creaGiocatore : function(apiUsername)
     {
         username = apiUsername.toLowerCase()
@@ -382,10 +475,12 @@ CAMPIONATO = {
         CAMPIONATO.giocatori[username].perse = 0;
         CAMPIONATO.giocatori[username].patte = 0;
         CAMPIONATO.giocatori[username].gironi = '';
-        CAMPIONATO.giocatori[username].nTimeoutWin = 0;
-        CAMPIONATO.giocatori[username].nTimeoutWin3 = 0;
-        CAMPIONATO.giocatori[username].nTimeoutLost = 0;
-        CAMPIONATO.giocatori[username].nTimeoutLost3 = 0;
+        //timeout punteggio CAMPIONATO.giocatori[username].nTimeoutWin = 0;
+        //timeout punteggio CAMPIONATO.giocatori[username].nTimeoutWin3 = 0;
+        //timeout punteggio CAMPIONATO.giocatori[username].nTimeoutLost = 0;
+        //timeout punteggio CAMPIONATO.giocatori[username].nTimeoutLost3 = 0;
+        CAMPIONATO.giocatori[username].nTimeoutGirone = 0;
+        CAMPIONATO.giocatori[username].nTimeoutGiallo = 0;
         CAMPIONATO.giocatori[username].stampato = false;
         $.getJSON('https://api.chess.com/pub/player/' + username,function(dataAvatar){
             if (dataAvatar.avatar) {
