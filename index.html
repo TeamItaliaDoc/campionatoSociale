@@ -7,10 +7,12 @@
 <meta http-equiv="Expires" content="0" />
 <script type="text/javascript" src="js/jquery-2.0.3.js"> </script>
 
+
 <script>document.write('<script type="text/javascript"  src="js/campionatoSociale2018.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
 <script>document.write('<link rel="stylesheet" href="css/TID.css?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
 <!--
 <script>document.write('<script type="text/javascript"  src="js/campionatoSociale2018.js"\><\/script>');</script>
+<script>document.write('<link rel="stylesheet" href="css/TID.css"\><\/script>');</script>
 -->
 
 </head>
@@ -20,6 +22,10 @@
     var query = window.location.search.substring(1);
     if (!query)
       window.location = 'index.html?dev=' + Math.floor(Math.random() * 100);
+    if (query == 'admin')
+    {
+        CAMPIONATO.isAdmin = true;
+    }   
 </script>
     
 <body>
