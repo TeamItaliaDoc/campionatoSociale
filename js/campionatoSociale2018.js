@@ -52,6 +52,14 @@ CAMPIONATO = {
         stgironi += ',{"index": "33", "nome": "campionato-sociale-team-italia-doc-2018-girone-33", "descrizione" : "33", "inizio" : "22/09/2018", "coefficiente" : "1.28", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "34", "nome": "campionato-sociale-team-italia-doc-2018-girone-34", "descrizione" : "34", "inizio" : "25/09/2018", "coefficiente" : "1.21", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ',{"index": "35", "nome": "campionato-sociale-team-italia-doc-2018-girone-35", "descrizione" : "35", "inizio" : "26/09/2018", "coefficiente" : "1.40", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "36", "nome": "campionato-sociale-team-italia-doc-2018-girone-36", "descrizione" : "36", "inizio" : "30/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "37", "nome": "campionato-sociale-team-italia-doc-2018-girone-37", "descrizione" : "37", "inizio" : "26/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "38", "nome": "campionato-sociale-team-italia-doc-2018-girone-37", "descrizione" : "38", "inizio" : "26/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "39", "nome": "campionato-sociale-team-italia-doc-2018-girone-37", "descrizione" : "39", "inizio" : "26/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "40", "nome": "campionato-sociale-team-italia-doc-2018-girone-37", "descrizione" : "40", "inizio" : "26/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "41", "nome": "campionato-sociale-team-italia-doc-2018-girone-37", "descrizione" : "41", "inizio" : "26/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "42", "nome": "campionato-sociale-team-italia-doc-2018-girone-37", "descrizione" : "42", "inizio" : "26/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
+        stgironi += ',{"index": "43", "nome": "campionato-sociale-team-italia-doc-2018-girone-37", "descrizione" : "43", "inizio" : "26/09/2018", "coefficiente" : "1.00", "partiteTernimate" : "0", "risultati" : "{}"}';
         stgironi += ']}';
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
@@ -83,7 +91,19 @@ CAMPIONATO = {
                 CAMPIONATO.calcolaClassifica();
             }).error(function(jqXhr, textStatus, error) {
                 //è andato in errore ricarico i dati
-                CAMPIONATO.caricaDati(this.url);    
+                if (jqXhr.status != 404)
+                {
+                    CAMPIONATO.caricaDati(this.url);    
+                } else {
+                    //Il girone non esiste. Lo cancello
+                    for (var iGirone in CAMPIONATO.gironi.girone) {
+                        if ('https://api.chess.com/pub/tournament/' + CAMPIONATO.gironi.girone[iGirone].nome + '/1/1' == this.url)
+                        {
+                            CAMPIONATO.gironi.girone.splice(iGirone); 
+                            //exit;   
+                        }
+                    }
+                }
             });
 
     },
@@ -112,6 +132,11 @@ CAMPIONATO = {
 
             //Per tutte le partite
             for (var iGames in CAMPIONATO.gironi.girone[i].risultati.games) {
+
+                //Aggiorno la data di inizio girone. DA FARE prima del controllo della fine     
+                if ( (! CAMPIONATO.gironi.girone[i].dataInizio) || (CAMPIONATO.gironi.girone[i].dataInizio > CAMPIONATO.gironi.girone[i].risultati.games[iGames].start_time))
+                    CAMPIONATO.gironi.girone[i].dataInizio =CAMPIONATO.gironi.girone[i].risultati.games[iGames].start_time;
+
                 //Se non definita end_time la partita non è finita
                 if (! CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time )
                     continue; 
@@ -126,7 +151,7 @@ CAMPIONATO = {
                 if ( (! CAMPIONATO.gironi.girone[i].dataFine) || (CAMPIONATO.gironi.girone[i].dataFine < CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time))
                     CAMPIONATO.gironi.girone[i].dataFine =CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time;
 
-                //Aggiorno partite finite
+                    //Aggiorno partite finite
                 CAMPIONATO.gironi.girone[i].partiteTernimate ++;
                 //Aggiorno punti bianco
                 //Calcolo punteggio se sono state fatte più di tre mosse.
@@ -270,8 +295,15 @@ CAMPIONATO = {
                 end_time = new Date(1000*myObj.date_created);
                 dataFine = giorni[end_time.getDate()-1]  + '/' + giorni[end_time.getMonth()]+ '/'+ end_time.getFullYear();
             }
+            //Data inizio
+            var start_time
+            var dataInizio = ""
+            var myObj = $.parseJSON('{"date_created":"' + CAMPIONATO.gironi.girone[i].dataInizio + '"}'),
+            start_time = new Date(1000*myObj.date_created);
+            dataInizio = giorni[start_time.getDate()-1]  + '/' + giorni[start_time.getMonth()]+ '/'+ start_time.getFullYear();
+    
             $("#gironi").append('<tr  ' + colore + ' class="gironi-giocatori"> <td class="gironi-col1"><a class="username" href="https://www.chess.com/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/pairings/" target=”_blank”> #' +
-            CAMPIONATO.gironi.girone[i].descrizione + '</a></td><td class="gironi-col">' + CAMPIONATO.gironi.girone[i].inizio + '</td> <td class="gironi-col">' + dataFine + '</td> ' +
+            CAMPIONATO.gironi.girone[i].descrizione + '</a></td><td class="gironi-col">' + dataInizio + '</td> <td class="gironi-col">' + dataFine + '</td> ' +
             '<td class="gironi-col">' + CAMPIONATO.gironi.girone[i].coefficiente + '</td> <td class="gironi-col">' + CAMPIONATO.gironi.girone[i].partiteTernimate + ' / 30</td> </tr>');
         }
     }
