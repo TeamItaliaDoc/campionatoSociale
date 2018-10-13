@@ -18,7 +18,7 @@ CAMPIONATO = {
     { 
         stgironi = '{"girone": [';
         stgironi += '{"index": "1", "nome": "campionato-sociale-team-italia-doc-girone-1", "descrizione" : "1", "coefficiente" : "1.41", "partiteTerminate" : "0", "avviato" : true, "risultati" : "{}"}';
-        stgironi += ',{"index": "2", "nome": "campionato-sociale-team-italia-doc-girone-2", "descrizione" : "2", "coefficiente" : "1.51", "partiteTerminate" : "0", "avviato" : true, "risultati" : "{}"}';
+     /*   stgironi += ',{"index": "2", "nome": "campionato-sociale-team-italia-doc-girone-2", "descrizione" : "2", "coefficiente" : "1.51", "partiteTerminate" : "0", "avviato" : true, "risultati" : "{}"}';
         stgironi += ',{"index": "3", "nome": "campionato-sociale-team-italia-doc-girone-3", "descrizione" : "3", "coefficiente" : "1.36", "partiteTerminate" : "0", "avviato" : true, "risultati" : "{}"}';
         stgironi += ',{"index": "4", "nome": "campionato-sociale-team-italia-doc-girone-4", "descrizione" : "4", "coefficiente" : "1.37", "partiteTerminate" : "0", "avviato" : true, "risultati" : "{}"}';
         stgironi += ',{"index": "5", "nome": "campionato-sociale-team-italia-doc-girone-5", "descrizione" : "5", "coefficiente" : "1.18", "partiteTerminate" : "0", "avviato" : true, "risultati" : "{}"}';
