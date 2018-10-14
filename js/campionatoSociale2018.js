@@ -62,12 +62,12 @@ CAMPIONATO = {
         stgironi += ',{"index": "42", "nome": "campionato-sociale-team-italia-doc-2018-girone-42", "descrizione" : "42", "coefficiente" : "1.45", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "43", "nome": "campionato-sociale-team-italia-doc-2018-girone-43", "descrizione" : "43", "coefficiente" : "1.38", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "44", "nome": "campionato-sociale-team-italia-doc-2018-girone-44", "descrizione" : "44", "coefficiente" : "1", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
-    /*    stgironi += ',{"index": "45", "nome": "campionato-sociale-team-italia-doc-2018-girone-45", "descrizione" : "45", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "45", "nome": "campionato-sociale-team-italia-doc-2018-girone-45", "descrizione" : "45", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true, "risultati" : "{}"}';
         stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
-    */    stgironi += ']}';
+        stgironi += ']}';
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
 
@@ -117,7 +117,7 @@ CAMPIONATO = {
     username = 'rolmas54';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"' + username + '", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":5.4, "vinte":4, "perse":3, "patte":0';
+    stgiocatore += ', "elo":"", "punteggio":5.41, "vinte":4, "perse":3, "patte":0';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
@@ -546,8 +546,6 @@ CAMPIONATO = {
                     //Rilancio funzione per riesiguire il controllo
                     CAMPIONATO.getElo();    
 
-                    console.log('carico elo ' +getEloUsername );
-
                 }).error(function(jqXhr, textStatus, error) {
                     //è andato in errore ricarico i dati
                     CAMPIONATO.getElo();    
@@ -750,16 +748,30 @@ CAMPIONATO = {
         if ((newPunteggio == posizione.oldPunti) &
             (newVinte == posizione.oldVinte))
         {
-            posizione.pari ++;
+
+//?????????????
+            if (CAMPIONATO.giocatori[username].elo < 1301) {
+                if (posizione.fasciaC == 0)
+            posizione.fasciaC = 1;
+            }
+
+             posizione.pari ++;
         } else {
+
             posizione.N += posizione.pari + 1;
             posizione.oldPunti = newPunteggio;
             posizione.oldVinte = newVinte;
             //Aggiorno posizioni fascia
             if (CAMPIONATO.giocatori[username].elo > 1300 &  CAMPIONATO.giocatori[username].elo < 1601)
                 posizione.fasciaB += posizione.pari + 1;
-            if (CAMPIONATO.giocatori[username].elo < 1301)
-                posizione.fasciaC += posizione.pari + 1;
+            if (CAMPIONATO.giocatori[username].elo < 1301) {
+//??????????????
+                if (posizione.fasciaC == 1)
+                   posizione.fasciaC = 2;
+                else    
+                    posizione.fasciaC += posizione.pari + 1;
+
+            }
             //Azzero pari
             posizione.pari = 0;
         }
