@@ -4,7 +4,7 @@
 //METTERE SEMPRE MINUSCOLO
 var giorni = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
 var elimiati = ["danieletar", "never_walk_alone", "miki1701", "aracine", "jbg12618", "nr051162", "lieissvi", "mastertom2040", "costadeipirati","ricci888",
-	"procellaria_fabio_61","procellaria_61-it", "lamicoditenerife-x", "vesevus"];
+	"procellaria_fabio_61","procellaria_61-it", "lamicoditenerife-x", "vesevus", "lordbendtner99"];
 var posizione = {"N": 0, "fasciaB" : 0, "fasciaC" : 0, "pari" : 0,"oldPunti" : 0, "oldVinte" : 0, "oldPerse" : 0, "oldNPartite" : 0}
 var fineTorneo = new Date("2019-01-01"); 
 
@@ -62,11 +62,11 @@ CAMPIONATO = {
         stgironi += ',{"index": "42", "nome": "campionato-sociale-team-italia-doc-2018-girone-42", "descrizione" : "42", "coefficiente" : "1.45", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "43", "nome": "campionato-sociale-team-italia-doc-2018-girone-43", "descrizione" : "43", "coefficiente" : "1.38", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "44", "nome": "campionato-sociale-team-italia-doc-2018-girone-44", "descrizione" : "44", "coefficiente" : "1.41", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
-     /*   stgironi += ',{"index": "45", "nome": "campionato-sociale-team-italia-doc-2018-girone-45", "descrizione" : "45", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true, "risultati" : "{}"}';
-        stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "45", "nome": "campionato-sociale-team-italia-doc-2018-girone-45", "descrizione" : "45", "coefficiente" : "1.54", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "46", "nome": "campionato-sociale-team-italia-doc-2018-girone-46", "descrizione" : "46", "coefficiente" : "1.43", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "47", "nome": "campionato-sociale-team-italia-doc-2018-girone-47", "descrizione" : "47", "coefficiente" : "1.39", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
+     /*   stgironi += ',{"index": "48", "nome": "campionato-sociale-team-italia-doc-2018-girone-48", "descrizione" : "48", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true, "risultati" : "{}"}';
+        stgironi += ',{"index": "49", "nome": "campionato-sociale-team-italia-doc-2018-girone-49", "descrizione" : "49", "coefficiente" : "1.00", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
        */ stgironi += ']}';
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
@@ -74,28 +74,30 @@ CAMPIONATO = {
     //Aggiorno dati per gironi che non si caricano 
     CAMPIONATO.gironi.girone[9-1].dataInizio = new Date('2018-07-25');   
     CAMPIONATO.gironi.girone[9-1].partiteTerminate = '26';   
+    CAMPIONATO.gironi.girone[9-1].giocatori = ["roberto_boe","rogergheser","pinandia","rolmas54"]; 
     CAMPIONATO.gironi.girone[21-1].dataInizio = new Date('2018-08-28');   
     CAMPIONATO.gironi.girone[21-1].partiteTerminate = '28';   
+    CAMPIONATO.gironi.girone[21-1].giocatori = ["fungiat","stefano95lf","sanner60","themoonlightknight"];   
     CAMPIONATO.gironi.girone[25-1].dataInizio = new Date('2018-09-07');   
     CAMPIONATO.gironi.girone[25-1].partiteTerminate = '28';   
+    CAMPIONATO.gironi.girone[25-1].giocatori = ["nimzoblockade","thomyorkeandeeeeeed","dag_stinner","implacabile","asbana55"];   
     CAMPIONATO.gironi.girone[32-1].dataInizio = new Date('2018-09-21');   
     CAMPIONATO.gironi.girone[32-1].partiteTerminate = '19';   
-    CAMPIONATO.gironi.girone[35-1].dataInizio = new Date('2018-09-26');   
-    CAMPIONATO.gironi.girone[35-1].partiteTerminate = '27';   
+    CAMPIONATO.gironi.girone[32-1].giocatori = ["saurosol","litantrace","mrcarokan","emanuelefratantuono","themoonlightknight"];   
     CAMPIONATO.gironi.girone[36-1].dataInizio = new Date('2018-09-30');   
     CAMPIONATO.gironi.girone[36-1].partiteTerminate = '14';   
+    CAMPIONATO.gironi.girone[36-1].giocatori = ["vittobet","kremont","fungiat","mlamdmar","sanner60"];   
 
-     //Giocatori dei gironi che vanno in errore
+     //Giocatori dei gironi che vanno in errore 
     //--------- GIRONE 9
     username = 'roberto_boe';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"Roberto_Boe", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":8.1, "vinte":6, "perse":0, "patte":0';
+    stgiocatore += ', "elo":"", "punteggio":8.1, "vinte":6, "perse":1, "patte":0';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-girone-9/pairings/" target=”_blank”>9</a> - ';
     username = 'rogergheser';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"' + username + '", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -104,16 +106,14 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-girone-9/pairings/" target=”_blank”>9</a> - ';
     username = 'pinandia';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"' + username + '", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":5.4, "vinte":4, "perse":4, "patte":0';
+    stgiocatore += ', "elo":"", "punteggio":6.75, "vinte":5, "perse":4, "patte":0';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-girone-9/pairings/" target=”_blank”>9</a> - ';
     username = 'rolmas54';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"' + username + '", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -121,7 +121,6 @@ CAMPIONATO = {
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-girone-9/pairings/" target=”_blank”>21</a> - ';
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
     //--------- GIRONE 21
     username = 'fungiat';
@@ -132,7 +131,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-21/pairings/" target=”_blank”>21</a> - ';
     username = 'stefano95lf';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"Stefano95LF", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -141,7 +139,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-21/pairings/" target=”_blank”>9</a> - ';
     //--------- GIRONE 25
     username = 'nimzoblockade';
     CAMPIONATO.giocatori[username] = {};
@@ -151,7 +148,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-25/pairings/" target=”_blank”>25</a> - ';
     username = 'thomyorkeandeeeeeed';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"ThomYorkeAndEEEEEED", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -160,7 +156,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-25/pairings/" target=”_blank”>25</a> - ';
     username = 'dag_stinner';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"Dag_Stinner", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -169,7 +164,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-25/pairings/" target=”_blank”>25</a> - ';
     username = 'implacabile';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"Implacabile", "id":"https://www.chess.com/member/' + username + '","avatar":"https://betacssjs.chesscomfiles.com/bundles/web/images/user-image.152ee336.svg"';
@@ -178,7 +172,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-25/pairings/" target=”_blank”>25</a> - ';
     username = 'asbana55';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"Asbana55", "id":"https://www.chess.com/member/' + username + '","avatar":"https://betacssjs.chesscomfiles.com/bundles/web/images/user-image.152ee336.svg"';
@@ -187,7 +180,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-25/pairings/" target=”_blank”>25</a> - ';
     //--------- GIRONE 32
     username = 'saurosol';
     CAMPIONATO.giocatori[username] = {};
@@ -197,17 +189,14 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-32/pairings/" target=”_blank”>32</a> - ';
-    CAMPIONATO.giocatori[username].gironi += '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-35/pairings/" target=”_blank”>35</a> - ';
-    username = 'fabio_litantrace';
+    username = 'litantrace';
     CAMPIONATO.giocatori[username] = {};
-    stgiocatore = '{"username":"' + username + '", "displayName":"Fabio_Litantrace", "id":"https://www.chess.com/member/' + username + '","avatar":""';
+    stgiocatore = '{"username":"' + username + '", "displayName":"Litantrace", "id":"https://www.chess.com/member/' + username + '","avatar":""';
     stgiocatore += ', "elo":"", "punteggio":5.6, "vinte":4, "perse":3, "patte":0';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-32/pairings/" target=”_blank”>32</a> - ';
     username = 'mrcarokan';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"MrCarokan", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -216,7 +205,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-32/pairings/" target=”_blank”>32</a> - ';
     username = 'emanuelefratantuono';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"EmanueleFratantuono", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -225,56 +213,48 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-32/pairings/" target=”_blank”>32</a> - ';
     //--------- GIRONE 36
     username = 'vittobet';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"Vittobet", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":6.08, "vinte":4, "perse":1, "patte":0';
+    stgiocatore += ', "elo":"", "punteggio":6.08, "vinte":4, "perse":3, "patte":0';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-36/pairings/" target=”_blank”>36</a> - ';
     username = 'kremont';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"kremont", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":4.56, "vinte":3, "perse":3, "patte":0';
+    stgiocatore += ', "elo":"", "punteggio":6.84, "vinte":4, "perse":3, "patte":1';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-36/pairings/" target=”_blank”>36</a> - ';
     username = 'fungiat';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"Fungiat", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":6.08, "vinte":4, "perse":0, "patte":0';
+    stgiocatore += ', "elo":"", "punteggio":9.88, "vinte":6, "perse":0, "patte":1';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-36/pairings/" target=”_blank”>36</a> - ';
     username = 'mlamdmar';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"' + username + '", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":3.04, "vinte":2, "perse":3, "patte":0';
+    stgiocatore += ', "elo":"", "punteggio":3.04, "vinte":2, "perse":5, "patte":0';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-36/pairings/" target=”_blank”>36</a> - ';
     //--------- PIU' GIRONI
     username = 'sanner60';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"' + username + '", "id":"https://www.chess.com/member/' + username + '","avatar":""';
-    stgiocatore += ', "elo":"", "punteggio":12.64, "vinte":9, "perse":0, "patte":1';
+    stgiocatore += ', "elo":"", "punteggio":18.48, "vinte":13, "perse":0, "patte":1';
     stgiocatore += ',"gironi":"", "nTimeoutWin":0,  "nTimeoutWin3":0, "nTimeoutLost":0, "nTimeoutLost3":0, "nTimeoutGirone":0,  "nTimeoutGiallo":0';
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-21/pairings/" target=”_blank”>21</a> - ';
-    CAMPIONATO.giocatori[username].gironi += '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-35/pairings/" target=”_blank”>35</a> - ';
-    CAMPIONATO.giocatori[username].gironi += '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-36/pairings/" target=”_blank”>36</a> - ';
     username = 'themoonlightknight';
     CAMPIONATO.giocatori[username] = {};
     stgiocatore = '{"username":"' + username + '", "displayName":"TheMoonlightKnight", "id":"https://www.chess.com/member/' + username + '","avatar":""';
@@ -283,8 +263,6 @@ CAMPIONATO = {
     stgiocatore += ',"stampato":false, "accountChiuso":false}';
     CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);   
     CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
-    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-21/pairings/" target=”_blank”>21</a> - ';
-    CAMPIONATO.giocatori[username].gironi += '<a href="https://www.chess.com/tournament/campionato-sociale-team-italia-doc-2018-girone-32/pairings/" target=”_blank”>32</a> - ';
 
 /*
     username = '';
@@ -303,6 +281,13 @@ CAMPIONATO = {
         for (var i in CAMPIONATO.gironi.girone) {
             if (CAMPIONATO.gironi.girone[i].daCaricare) {
                 CAMPIONATO.caricaDati('https://api.chess.com/pub/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/1/1');
+            } else {
+                //Non è da caricare, aggiungo il girone ai giocatori
+                for (var iGiocatore in CAMPIONATO.gironi.girone[i].giocatori) {
+                    var username = CAMPIONATO.gironi.girone[i].giocatori[iGiocatore];
+                    CAMPIONATO.giocatori[username].gironi = '<a href="https://www.chess.com/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/pairings/" target=”_blank”>' + CAMPIONATO.gironi.girone[i].index + '</a> - ';
+
+                }
             }
         }
     },
@@ -490,6 +475,12 @@ CAMPIONATO = {
         }).error(function(jqXhr, textStatus, error) {
             //è andato in errore ricarico i dati
             CAMPIONATO.getAvatarUrl(this.url);    
+            //Per evitare problemi se il giocatore è non esiste,
+            //  se va in errore carico l'avatar di default
+            //Tolto se il giocatore va in errore bisogna correggere anche stat
+            //var username = this.url.substr(33, this.url.length - 32);
+            //CAMPIONATO.giocatori[username.toLowerCase()].avatar = "https://betacssjs.chesscomfiles.com/bundles/web/images/user-image.152ee336.svg";
+
         });
 
     },
