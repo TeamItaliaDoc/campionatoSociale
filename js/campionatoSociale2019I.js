@@ -430,15 +430,18 @@ CAMPIONATO = {
     {
         console.log('inizio scrivi tabelle');  //???????
         //Calcola classifica per fascie
-        while (CAMPIONATO.calcolaClassificaFasciaB());
+        while (CAMPIONATO.calcolaClassificaU1300());
         posizione.N = 0;
         posizione.oldPunti = -1;
         posizione.oldVinte = 0;
         posizione.pari = 0;
-        console.log('inizio scrivi tabelle 1');  //???????
-        while (CAMPIONATO.calcolaClassificaFasciaC());
+        while (CAMPIONATO.calcolaClassificaU1500());
+        posizione.N = 0;
+        posizione.oldPunti = -1;
+        posizione.oldVinte = 0;
+        posizione.pari = 0;
+        while (CAMPIONATO.calcolaClassificaU1700());
 
-        console.log('inizio scrivi tabelle 2');  //???????
         //Tabella classifica
         posizione.N = 0;
         posizione.oldPunti = -1;
@@ -484,11 +487,11 @@ CAMPIONATO = {
     
             $("#gironi").append('<tr  ' + colore + ' class="gironi-giocatori"> <td class="gironi-col1"><a class="username" href="https://www.chess.com/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/pairings/" target=”_blank”> #' +
             CAMPIONATO.gironi.girone[i].descrizione + '</a></td><td class="gironi-col">' + dataInizio + '</td> <td class="gironi-col">' + dataFine + '</td> ' +
-            '<td class="gironi-col">' + '' + '</td> <td class="gironi-col">' + CAMPIONATO.gironi.girone[i].partiteTerminate + ' / 30</td> </tr>');
+            '<td class="gironi-col">' + CAMPIONATO.gironi.girone[i].partiteTerminate + ' / 30</td> </tr>');
         }
     }
     ,
-    calcolaClassificaFasciaB: function()
+    calcolaClassificaU1300: function()
     {
         //Cerco giocatore con punteggio più alto
         var username = "";
@@ -499,8 +502,7 @@ CAMPIONATO = {
         //Calcolo classifica 
         for (var i in CAMPIONATO.giocatori) {
             giocatore = CAMPIONATO.giocatori[i];
-//stampato non usato            if (! giocatore.stampato & ! giocatore.accountChiuso & giocatore.elo > 1300 &  giocatore.elo < 1601 & ! giocatore.fasciaB) {
-                if (! giocatore.accountChiuso & giocatore.elo > 1300 &  giocatore.elo < 1601 & ! giocatore.fasciaB) {
+                if (! giocatore.accountChiuso & giocatore.elo < 1300 & ! giocatore.U1300) {
                 if  ((giocatore.punteggio > newPunteggio) |
                     ((giocatore.punteggio == newPunteggio) & (giocatore.vinte > newVinte) )
                     )          
@@ -532,11 +534,11 @@ CAMPIONATO = {
         posizione.pari = 0;
 
         //Aggiorno posizione
-        CAMPIONATO.giocatori[username].fasciaB = posizione.N;
+        CAMPIONATO.giocatori[username].U1300 = posizione.N;
 
         return true;
     },
-    calcolaClassificaFasciaC: function()
+    calcolaClassificaU1500: function()
     {
         //Cerco giocatore con punteggio più alto
         var username = "";
@@ -547,8 +549,7 @@ CAMPIONATO = {
         //Calcolo classifica 
         for (var i in CAMPIONATO.giocatori) {
             giocatore = CAMPIONATO.giocatori[i];
-//stampato non usato ???            if (! giocatore.stampato & ! giocatore.accountChiuso & giocatore.elo < 1301 & ! giocatore.fasciaC) {
-                if (! giocatore.accountChiuso & giocatore.elo < 1301 & ! giocatore.fasciaC) {
+                if (! giocatore.accountChiuso & giocatore.elo > 1299 &  giocatore.elo < 1500 & ! giocatore.U1500) {
                 if  ((giocatore.punteggio > newPunteggio) |
                     ((giocatore.punteggio == newPunteggio) & (giocatore.vinte > newVinte) )
                     )          
@@ -580,7 +581,54 @@ CAMPIONATO = {
         posizione.pari = 0;
 
         //Aggiorno posizione
-        CAMPIONATO.giocatori[username].fasciaC = posizione.N;
+        CAMPIONATO.giocatori[username].U1500 = posizione.N;
+
+        return true;
+    },
+    calcolaClassificaU1700: function()
+    {
+        //Cerco giocatore con punteggio più alto
+        var username = "";
+        var newPunteggio = -1;
+        var newVinte = -1;
+        var giocatore;
+
+        //Calcolo classifica 
+        for (var i in CAMPIONATO.giocatori) {
+            giocatore = CAMPIONATO.giocatori[i];
+            if (! giocatore.accountChiuso & giocatore.elo > 1499 &  giocatore.elo < 1700 & ! giocatore.U1700) {
+                if  ((giocatore.punteggio > newPunteggio) |
+                    ((giocatore.punteggio == newPunteggio) & (giocatore.vinte > newVinte) )
+                    )          
+                {
+                    newPunteggio = giocatore.punteggio;
+                    newVinte = giocatore.vinte;
+                    username = i;
+                }
+            }
+        }
+
+        if (username == "")
+        {
+            return false;
+        }
+
+        //Controllo se sono pari
+        if ((newPunteggio == posizione.oldPunti) &
+            (newVinte == posizione.oldVinte))
+        {
+             posizione.pari ++;
+        } else {
+
+            posizione.N += posizione.pari + 1;
+            posizione.oldPunti = newPunteggio;
+            posizione.oldVinte = newVinte;
+        }
+        //Azzero pari
+        posizione.pari = 0;
+
+        //Aggiorno posizione
+        CAMPIONATO.giocatori[username].U1700 = posizione.N;
 
         return true;
     },
@@ -662,30 +710,43 @@ CAMPIONATO = {
                     stPosizione = '<img class="classifica-podio" src="img/assoluto4.png"><BR>' + stPosizione + ' Assoluto';
                 if (posizione.N == 5)
                 stPosizione = '<img class="classifica-podio" src="img/assoluto5.png"><BR>' + stPosizione + ' Assoluto';
-                //Fascia B - U1600
-                if (CAMPIONATO.giocatori[username].elo > 1300 &  CAMPIONATO.giocatori[username].elo < 1601)
+                //Categoria U1700
+                if (CAMPIONATO.giocatori[username].elo > 1499 &  CAMPIONATO.giocatori[username].elo < 1700)
                 {
-                    if (posizione.N > 5 & CAMPIONATO.giocatori[username].fasciaB < 4)
-                        stPosizione = '<img class="classifica-podio" src="img/fasciaB' + CAMPIONATO.giocatori[username].fasciaB + '.png">';
-                    stPosizione += '<span style="font-size: 10px;"><BR>#' + CAMPIONATO.giocatori[username].fasciaB + ' U1600</span>';
+                    if (posizione.N > 5 & CAMPIONATO.giocatori[username].U1700 < 4)
+                        stPosizione = '<img class="classifica-podio" src="img/U1700' + CAMPIONATO.giocatori[username].U1700 + '.png">';
+                    stPosizione += '<span style="font-size: 10px;"><BR>#' + CAMPIONATO.giocatori[username].U1700 + ' U1700</span>';
                 }
-                //Fascia C - U1300
-                if (CAMPIONATO.giocatori[username].elo < 1301)
+                //Categoria U1500
+                if (CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500)
+                {
+                    if (posizione.N > 5 & CAMPIONATO.giocatori[username].U1500 < 4)
+                        stPosizione = '<img class="classifica-podio" src="img/U1500' + CAMPIONATO.giocatori[username].U1500 + '.png">';
+                    stPosizione += '<span style="font-size: 10px;"><BR>#' + CAMPIONATO.giocatori[username].U1500 + ' U1500</span>';
+                }
+                //Categoria U1300
+                if (CAMPIONATO.giocatori[username].elo < 1300)
                 { 
-                    if (posizione.N > 5 & CAMPIONATO.giocatori[username].fasciaC  < 4)
-                        stPosizione = '<img class="classifica-podio" src="img/fasciaC' + CAMPIONATO.giocatori[username].fasciaC + '.png">';
-                    stPosizione += '<span style="font-size: 10px;"><br>#' + CAMPIONATO.giocatori[username].fasciaC + ' U1300</span>';
+                    if (posizione.N > 5 & CAMPIONATO.giocatori[username].U1300  < 4)
+                        stPosizione = '<img class="classifica-podio" src="img/U1300' + CAMPIONATO.giocatori[username].U1300 + '.png">';
+                    stPosizione += '<span style="font-size: 10px;"><br>#' + CAMPIONATO.giocatori[username].U1300 + ' U1300</span>';
                 }
             } else {
                 //Torneo non finito, non visualizzo immagini
-                if (CAMPIONATO.giocatori[username].elo > 1300 &  CAMPIONATO.giocatori[username].elo < 1601)
+                //Categoria U1700
+               if (CAMPIONATO.giocatori[username].elo > 1499 &  CAMPIONATO.giocatori[username].elo < 1700)
                {
-                    stPosizione += '<span style="font-size: 10px;"><BR>#' + CAMPIONATO.giocatori[username].fasciaB + ' U1600</span>';
+                    stPosizione += '<span style="font-size: 10px;"><BR>#' + CAMPIONATO.giocatori[username].U1700 + ' U1700</span>';
                }
-               //Fascia C
-               if (CAMPIONATO.giocatori[username].elo < 1301)
+                //Categoria U1500
+                if (CAMPIONATO.giocatori[username].elo > 1299 &  CAMPIONATO.giocatori[username].elo < 1500)
                 {     
-                    stPosizione += '<span style="font-size: 10px;"><br>#' + CAMPIONATO.giocatori[username].fasciaC + ' U1300</span>';
+                    stPosizione += '<span style="font-size: 10px;"><br>#' + CAMPIONATO.giocatori[username].U1500 + ' U1500</span>';
+                }
+                //Categoria U1300
+                if (CAMPIONATO.giocatori[username].elo < 1300)
+                {     
+                    stPosizione += '<span style="font-size: 10px;"><br>#' + CAMPIONATO.giocatori[username].U1300 + ' U1300</span>';
                 }
             }
         }    
