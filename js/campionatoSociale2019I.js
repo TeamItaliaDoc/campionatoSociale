@@ -18,13 +18,13 @@ CAMPIONATO = {
     { 
         stgironi = '{"girone": [';
         stgironi += '{"index": "1", "nome": "csp-inverno-2018-2019-girone-1", "descrizione" : "1", "partiteTerminate" : 0, "avviato" : true, "daCaricare" : true, "risultati" : "{}"}';
-/*        stgironi += ',{"index": "2", "nome": "csp-inverno-2018-2019-girone-2", "descrizione" : "2", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "2", "nome": "csp-inverno-2018-2019-girone-2", "descrizione" : "2", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "3", "nome": "csp-inverno-2018-2019-girone-3", "descrizione" : "3",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "4", "nome": "csp-inverno-2018-2019-girone-4", "descrizione" : "4",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "5", "nome": "csp-inverno-2018-2019-girone-5", "descrizione" : "5",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "6", "nome": "csp-inverno-2018-2019-girone-6", "descrizione" : "6",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "7", "nome": "csp-inverno-2018-2019-girone-7", "descrizione" : "7",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
-     */   stgironi += ',{"index": "8", "nome": "csp-inverno-2018-2019-girone-8", "descrizione" : "8",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "8", "nome": "csp-inverno-2018-2019-girone-8", "descrizione" : "8",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
        /* stgironi += ',{"index": "9", "nome": "csp-inverno-2018-2019-girone-9", "descrizione" : "9",  "partiteTerminate" : "0", "avviato" : true, "daCaricare" : false,  "risultati" : "{}"}';
         stgironi += ',{"index": "10", "nome": "csp-inverno-2018-2019-girone-10", "descrizione" : "10", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : true,  "risultati" : "{}"}';
         stgironi += ',{"index": "11", "nome": "csp-inverno-2018-2019-girone-11", "descrizione" : "11", "partiteTerminate" : "0", "avviato" : true, "daCaricare" : false,  "risultati" : "{}"}';
@@ -71,9 +71,9 @@ CAMPIONATO = {
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
 
-        console.log('inizio');  //???????
-    
-    //Aggiorno eloDate
+    // ???????' se si aggiungo giocatori per errore ban aggiungere campi partiteTotali e partiteTerminate    
+
+        //Aggiorno eloDate
     for (var username in CAMPIONATO.giocatori) {
         CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
     }
@@ -198,6 +198,28 @@ CAMPIONATO = {
                 if ( (! CAMPIONATO.gironi.girone[i].dataInizio) || (CAMPIONATO.gironi.girone[i].dataInizio > CAMPIONATO.gironi.girone[i].risultati.games[iGames].start_time))
                     CAMPIONATO.gironi.girone[i].dataInizio =CAMPIONATO.gironi.girone[i].risultati.games[iGames].start_time;
 
+                //Aggiorno totale partite dei giocatori
+                if (CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time )
+                {
+                    //Partita terminata
+                    var username = CAMPIONATO.gironi.girone[i].risultati.games[iGames].white.username.toLowerCase();
+                    CAMPIONATO.giocatori[username].partiteTotali ++;
+                    CAMPIONATO.giocatori[username].partiteTerminate ++;
+                    username = CAMPIONATO.gironi.girone[i].risultati.games[iGames].black.username.toLowerCase();
+                    CAMPIONATO.giocatori[username].partiteTotali ++;
+                    CAMPIONATO.giocatori[username].partiteTerminate ++;
+                } else {
+                    //Partita in corso
+                    //White/Black contengono l'api che restituisce i dati del giocatore
+                    //  lo username è la parte finale
+                    var username = CAMPIONATO.gironi.girone[i].risultati.games[iGames].white;
+                    username = username.substr(33, username.length-33).toLowerCase();
+                    CAMPIONATO.giocatori[username].partiteTotali ++;
+                    username = CAMPIONATO.gironi.girone[i].risultati.games[iGames].black;
+                    username = username.substr(33, username.length-33).toLowerCase();
+                    CAMPIONATO.giocatori[username].partiteTotali ++;
+                }
+
                 //Se non definita end_time la partita non è finita
                 if (! CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time )
                     continue; 
@@ -212,8 +234,9 @@ CAMPIONATO = {
                 if ( (! CAMPIONATO.gironi.girone[i].dataFine) || (CAMPIONATO.gironi.girone[i].dataFine < CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time))
                     CAMPIONATO.gironi.girone[i].dataFine =CAMPIONATO.gironi.girone[i].risultati.games[iGames].end_time;
 
-                    //Aggiorno partite finite
+                //Aggiorno partite finite
                 CAMPIONATO.gironi.girone[i].partiteTerminate ++;
+                
                 //Aggiorno punti bianco
                 //Calcolo punteggio se sono state fatte più di tre mosse.
                 png = CAMPIONATO.gironi.girone[i].risultati.games[iGames].pgn;
@@ -295,7 +318,7 @@ CAMPIONATO = {
     {
         console.log('inizio get elo');  //???????
 
-        //Se un giocatore è presente solo in gironi che non riesco a caricare imposto elo attualeù
+        //Se un giocatore è presente solo in gironi che non riesco a caricare imposto elo attuale
         // NB NB Devo farlo uno alla volta perchè la funzione non restituisce lo username
         for (var username in CAMPIONATO.giocatori) {
             if (CAMPIONATO.giocatori[username].elo == 0) {
@@ -752,6 +775,16 @@ CAMPIONATO = {
         }    
        //----------------- FINE POSIZIONE 
 
+       //Preparo riga per colonna Partite completate
+       var stCompletate = '';
+       if (CAMPIONATO.giocatori[username].partiteTerminate >= CAMPIONATO.giocatori[username].partiteTotali / 2)
+            stCompletate = '<img class="classifica-partite" src="img/Ok.png">';
+        else
+            stCompletate = '<img class="classifica-partite" src="img/Ko.png">';
+       stCompletate += '<BR><span>' +  CAMPIONATO.giocatori[username].partiteTerminate + ' - '  + CAMPIONATO.giocatori[username].partiteTotali + ' </span> ';
+
+       
+
        //stampo riga    
         $("#giocatori").append('<tr class="classifica-giocatori">' +
             '<td class="classifica-col1">' + stPosizione + '</td>' +  
@@ -773,7 +806,7 @@ CAMPIONATO = {
                 '<span class="game-lost">' +  CAMPIONATO.giocatori[username].perse + ' L</span> /' +
                 '<span class="game-draw">' +  CAMPIONATO.giocatori[username].patte + ' D</span>' +
             '</td>' +
-            '<td class="classifica-col5">' + '' + '</td>' +
+            '<td class="classifica-col5">' + stCompletate + '</td>' +
             '<td class="classifica-col6"></td>' +
             '<td class="classifica-col7">' + CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2)  + '</td>' +
             '</tr>'
@@ -838,6 +871,8 @@ CAMPIONATO = {
         CAMPIONATO.giocatori[username].vinte = 0;
         CAMPIONATO.giocatori[username].perse = 0;
         CAMPIONATO.giocatori[username].patte = 0;
+        CAMPIONATO.giocatori[username].partiteTerminate = 0;
+        CAMPIONATO.giocatori[username].partiteTotali = 0;
         CAMPIONATO.giocatori[username].gironi = '';
         CAMPIONATO.giocatori[username].stampato = false;
         CAMPIONATO.giocatori[username].accountChiuso = false;
