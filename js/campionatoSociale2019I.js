@@ -850,11 +850,16 @@ CAMPIONATO = {
 
        //Preparo riga per colonna Partite completate
        var stCompletate = '';
-       if ( ! CAMPIONATO.giocatori[username].iscritto && CAMPIONATO.giocatori[username].partiteTerminate >= CAMPIONATO.giocatori[username].partiteTotali / 2)
+       var percentuale = CAMPIONATO.giocatori[username].partiteTerminate * 100 / CAMPIONATO.giocatori[username].partiteTotali;
+       percentuale = percentuale.toFixed(0);  //Arrotondo
+       var nGironi = CAMPIONATO.giocatori[username].gironi.split(' - ').length-1;
+       //if ( ! CAMPIONATO.giocatori[username].iscritto && CAMPIONATO.giocatori[username].partiteTerminate >= CAMPIONATO.giocatori[username].partiteTotali / 2)
+       if ( ! CAMPIONATO.giocatori[username].iscritto && (
+           (nGironi < 2) || (nGironi >= 2 && nGironi <=3 && percentuale >= 50) || (nGironi >= 4 && nGironi <= 10 && percentuale >= 66) || (nGironi > 10 && percentuale >= 75) ))
             stCompletate = '<img class="classifica-partite" src="img/Ok.png">';
         else
             stCompletate = '<img class="classifica-partite" src="img/Ko.png">';
-       stCompletate += '<BR><span style="font-size: 10px;">' +  CAMPIONATO.giocatori[username].partiteTerminate + ' - '  + CAMPIONATO.giocatori[username].partiteTotali + ' </span> ';
+       stCompletate += '<BR><span style="font-size: 10px;">' +  CAMPIONATO.giocatori[username].partiteTerminate + ' - '  + CAMPIONATO.giocatori[username].partiteTotali + '  (' + percentuale + '%) </span> ';
         //Se iscritto ai nuovi gironi
         if (CAMPIONATO.giocatori[username].iscritto)
              stCompletate += '<span style="font-size: 10px;">' + CAMPIONATO.giocatori[username].iscritto;
