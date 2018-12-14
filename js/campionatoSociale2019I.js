@@ -481,7 +481,7 @@ CAMPIONATO = {
                         if (data.players[iPlayer].status == 'registered') {
                             if (CAMPIONATO.giocatori[data.players[iPlayer].username]) {
                                 if (! CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto) {
-                                    CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto = '<br>Iscritto #' + gironeIscritto;
+                                    CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto = '<br>Iscritto G' + gironeIscritto;
                                 } else {
                                     CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto += ' *'; 
                                 }
