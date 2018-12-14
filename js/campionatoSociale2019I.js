@@ -481,9 +481,10 @@ CAMPIONATO = {
                         if (data.players[iPlayer].status == 'registered') {
                             if (CAMPIONATO.giocatori[data.players[iPlayer].username]) {
                                 if (! CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto) {
-                                    CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto = '';
+                                    CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto = '<br>Iscritto #' + gironeIscritto;
+                                } else {
+                                    CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto += ' *'; 
                                 }
-                                CAMPIONATO.giocatori[data.players[iPlayer].username].iscritto += '<br>Iscritto #' + gironeIscritto; 
                         }
                             
                         }
@@ -853,9 +854,8 @@ CAMPIONATO = {
        var percentuale = CAMPIONATO.giocatori[username].partiteTerminate * 100 / CAMPIONATO.giocatori[username].partiteTotali;
        percentuale = percentuale.toFixed(0);  //Arrotondo
        var nGironi = CAMPIONATO.giocatori[username].gironi.split(' - ').length-1;
-       //if ( ! CAMPIONATO.giocatori[username].iscritto && CAMPIONATO.giocatori[username].partiteTerminate >= CAMPIONATO.giocatori[username].partiteTotali / 2)
        if ( ! CAMPIONATO.giocatori[username].iscritto && (
-           (nGironi < 2) || (nGironi >= 2 && nGironi <=3 && percentuale >= 50) || (nGironi >= 4 && nGironi <= 10 && percentuale >= 66) || (nGironi > 10 && percentuale >= 75) ))
+           (nGironi <= 10 && percentuale >= 50) || (nGironi >=  11 && nGironi <= 20 && percentuale >= 66) || (nGironi > 20 && percentuale >= 75) ))
             stCompletate = '<img class="classifica-partite" src="img/Ok.png">';
         else
             stCompletate = '<img class="classifica-partite" src="img/Ko.png">';
@@ -865,11 +865,12 @@ CAMPIONATO = {
              stCompletate += '<span style="font-size: 10px;">' + CAMPIONATO.giocatori[username].iscritto;
 
         //Se amministratore visualizzo come sono stati calcolati i punti
-        var calcoloPunti = '';
-        if (CAMPIONATO.giocatori[username].calcoloPunti)
-    //    calcoloPunti = '<span>' +  CAMPIONATO.giocatori[username].calcoloPunti + '</span>'
-        calcoloPunti = '<span style="font-size: 10px;">' +  CAMPIONATO.giocatori[username].calcoloPunti + '</span>'
-
+        var myPunteggio =  CAMPIONATO.giocatori[username].punteggio.toFixed(2);
+        if (CAMPIONATO.giocatori[username].calcoloPunti) {
+            myPunteggio = '<div class="tooltip">' + myPunteggio;
+            myPunteggio += '  <span class="tooltiptext">' + CAMPIONATO.giocatori[username].calcoloPunti + '</span>';
+            myPunteggio += '</div>';
+        }
        //stampo riga    
         $("#giocatori").append('<tr class="classifica-giocatori">' +
             '<td class="classifica-col1">' + stPosizione + '</td>' +  
@@ -886,16 +887,14 @@ CAMPIONATO = {
             '        </td>' +    
             '    </tr></table>' +
             '</td>' +
-            '<td class="classifica-col3">' + CAMPIONATO.giocatori[username].punteggio.toFixed(2) +'</td>' +
+            '<td class="classifica-col3">' + myPunteggio +'</td>' +
             '<td class="classifica-col4"> <span class="game-win">' +  CAMPIONATO.giocatori[username].vinte + ' W</span> /'+
                 '<span class="game-lost">' +  CAMPIONATO.giocatori[username].perse + ' L</span> /' +
                 '<span class="game-draw">' +  CAMPIONATO.giocatori[username].patte + ' D</span>' +
             '</td>' +
             '<td class="classifica-col5">' + stCompletate + '</td>' +
             '<td class="classifica-col6"></td>' +
-            '<td class="classifica-col7">' + CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2)  +
-                calcoloPunti +
-            '</td>' +
+            '<td class="classifica-col7">' + CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2) + '</td>' +
             '</tr>'
             );
 
