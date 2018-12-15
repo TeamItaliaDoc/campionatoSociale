@@ -395,13 +395,12 @@ CAMPIONATO = {
             punti = 1 * CAMPIONATO.getPunti(elo, avversarioElo);
             CAMPIONATO.giocatori[risultato.username.toLowerCase()].punteggio += punti;
             CAMPIONATO.giocatori[risultato.username.toLowerCase()].vinte ++;
-            //Se amministratore salvo come sono stati calcolati i punti
-            if (CAMPIONATO.isAdmin)
-            {
-                CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += '<BR>' + risultato.username + '(' + elo + ')';
-                CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - ' + avversarioUsename + '(' + avversarioElo + ')';
-                CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - W - ' +punti;
-            }
+            //salvo come sono stati calcolati i punti
+            if (CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti != '')
+                CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += '<BR>';
+            CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += '&nbsp;&nbsp;' + risultato.username + ' (' + elo + ')';
+            CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - ' + avversarioUsename + ' (' + avversarioElo + ')';
+            CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - W - ' +punti;
         } else {
             if ((risultato.result == 'agreed') || (risultato.result == 'repetition')  || (risultato.result == 'timevsinsufficient') || 
                 (risultato.result == '50move') || (risultato.result == 'insufficient') || (risultato.result == 'stalemate')  ){
@@ -409,13 +408,12 @@ CAMPIONATO = {
                 punti = 0.5 * CAMPIONATO.getPunti(elo, avversarioElo);
                 CAMPIONATO.giocatori[risultato.username.toLowerCase()].punteggio += punti;
                 CAMPIONATO.giocatori[risultato.username.toLowerCase()].patte ++;
-                //Se amministratore salvo come sono stati calcolati i punti
-                if (CAMPIONATO.isAdmin)
-                {
-                    CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += '<BR>' + risultato.username + '(' + elo + ')';
-                    CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - ' + avversarioUsename + '(' + avversarioElo + ')';
-                    CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - D - ' + punti;
-                }
+                //salvo come sono stati calcolati i punti
+                if (CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti != '')
+                    CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += '<BR>';
+                CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += '&nbsp;&nbsp;' + risultato.username + ' (' + elo + ')';
+                CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - ' + avversarioUsename +  ' (' + avversarioElo + ')';
+                CAMPIONATO.giocatori[risultato.username.toLowerCase()].calcoloPunti += ' - D - ' + punti;
             } else {
                 //Perso      
                 CAMPIONATO.giocatori[risultato.username.toLowerCase()].perse ++;
@@ -962,8 +960,7 @@ CAMPIONATO = {
         CAMPIONATO.giocatori[username].gironi = '';
         CAMPIONATO.giocatori[username].stampato = false;
         CAMPIONATO.giocatori[username].accountChiuso = false;
-        if (CAMPIONATO.isAdmin)
-            CAMPIONATO.giocatori[username].calcoloPunti = '';
+        CAMPIONATO.giocatori[username].calcoloPunti = '';
 
         $.getJSON('https://api.chess.com/pub/player/' + username,function(dataAvatar){
         if (dataAvatar.avatar) {
