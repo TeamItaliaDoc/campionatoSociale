@@ -44,6 +44,11 @@
     line-height: 1;
     margin-left: 10px;
 }
+
+.header-partite
+{
+    font-size:20px;
+}
 /* TABELLA CLASSIFICA */
 .classifica-tabella
 {

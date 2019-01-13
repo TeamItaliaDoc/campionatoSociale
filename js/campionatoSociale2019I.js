@@ -21,64 +21,92 @@ CAMPIONATO = {
         //Valorori avviato. 0: valore iniziale, girone avviato - 1: girone non iniziato da controllare players - 2: girone non iniziato players caricati 
         stgironi = '{"girone": [';
         stgironi += '{"index": "1", "nome": "csp-inverno-2018-2019-girone-1", "descrizione" : "1", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true, "risultati" : "{}"}';
-        stgironi += ',{"index": "2", "nome": "csp-inverno-2018-2019-girone-2", "descrizione" : "2", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "3", "nome": "csp-inverno-2018-2019-girone-3", "descrizione" : "3",  "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "4", "nome": "csp-inverno-2018-2019-girone-4", "descrizione" : "4",  "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "5", "nome": "csp-inverno-2018-2019-girone-5", "descrizione" : "5",  "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "6", "nome": "csp-inverno-2018-2019-girone-6", "descrizione" : "6",  "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "7", "nome": "csp-inverno-2018-2019-girone-7", "descrizione" : "7",  "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "8", "nome": "csp-inverno-2018-2019-girone-8", "descrizione" : "8",  "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "9", "nome": "csp-inverno-2018-2019-girone-9", "descrizione" : "9",  "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "10", "nome": "csp-inverno-2018-2019-girone-10", "descrizione" : "10", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "11", "nome": "csp-inverno-2018-2019-girone-11", "descrizione" : "11", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "12", "nome": "csp-inverno-2018-2019-girone-12", "descrizione" : "12", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "13", "nome": "csp-inverno-2018-2019-girone-13", "descrizione" : "13", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "14", "nome": "csp-inverno-2018-2019-girone-14", "descrizione" : "14", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "15", "nome": "csp-inverno-2018-2019-girone-15", "descrizione" : "15", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "16", "nome": "csp-inverno-2018-2019-girone-16", "descrizione" : "16", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "17", "nome": "csp-inverno-2018-2019-girone-17", "descrizione" : "17", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "18", "nome": "csp-inverno-2018-2019-girone-18", "descrizione" : "18", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "19", "nome": "csp-inverno-2018-2019-girone-19", "descrizione" : "19","partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "20", "nome": "csp-inverno-2018-2019-girone-20", "descrizione" : "20", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "21", "nome": "csp-inverno-2018-2019-girone-21", "descrizione" : "21", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "22", "nome": "csp-inverno-2018-2019-girone-22", "descrizione" : "22", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "23", "nome": "csp-inverno-2018-2019-girone-23", "descrizione" : "23", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "24", "nome": "csp-inverno-2018-2019-girone-24", "descrizione" : "24", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "25", "nome": "csp-inverno-2018-2019-girone-25", "descrizione" : "25", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "26", "nome": "csp-inverno-2018-2019-girone-26", "descrizione" : "26", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "27", "nome": "csp-inverno-2018-2019-girone-27", "descrizione" : "27", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "28", "nome": "csp-inverno-2018-2019-girone-28", "descrizione" : "28", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-      /*  stgironi += ',{"index": "29", "nome": "csp-inverno-2018-2019-girone-29", "descrizione" : "29", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "30", "nome": "csp-inverno-2018-2019-girone-30", "descrizione" : "30", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "31", "nome": "csp-inverno-2018-2019-girone-31", "descrizione" : "31", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "32", "nome": "csp-inverno-2018-2019-girone-32", "descrizione" : "32", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "33", "nome": "csp-inverno-2018-2019-girone-33", "descrizione" : "33", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "34", "nome": "csp-inverno-2018-2019-girone-34", "descrizione" : "34", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "35", "nome": "csp-inverno-2018-2019-girone-35", "descrizione" : "35", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "36", "nome": "csp-inverno-2018-2019-girone-36", "descrizione" : "36", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "37", "nome": "csp-inverno-2018-2019-girone-37", "descrizione" : "37", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "38", "nome": "csp-inverno-2018-2019-girone-38", "descrizione" : "38", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "39", "nome": "csp-inverno-2018-2019-girone-39", "descrizione" : "39", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "40", "nome": "csp-inverno-2018-2019-girone-40", "descrizione" : "40", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "41", "nome": "csp-inverno-2018-2019-girone-41", "descrizione" : "41", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "42", "nome": "csp-inverno-2018-2019-girone-42", "descrizione" : "42", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "43", "nome": "csp-inverno-2018-2019-girone-43", "descrizione" : "43", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "44", "nome": "csp-inverno-2018-2019-girone-44", "descrizione" : "44", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "45", "nome": "csp-inverno-2018-2019-girone-45", "descrizione" : "45", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "46", "nome": "csp-inverno-2018-2019-girone-46", "descrizione" : "46", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "47", "nome": "csp-inverno-2018-2019-girone-47", "descrizione" : "47", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "48", "nome": "csp-inverno-2018-2019-girone-48", "descrizione" : "48", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true, "risultati" : "{}"}';
-        stgironi += ',{"index": "49", "nome": "csp-inverno-2018-2019-girone-49", "descrizione" : "49", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
-        stgironi += ',{"index": "50", "nome": "csp-inverno-2018-2019-girone-50", "descrizione" : "50", "partiteTerminate" : "0", "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "2", "nome": "csp-inverno-2018-2019-girone-2", "descrizione" : "2", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "3", "nome": "csp-inverno-2018-2019-girone-3", "descrizione" : "3",  "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "4", "nome": "csp-inverno-2018-2019-girone-4", "descrizione" : "4",  "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "5", "nome": "csp-inverno-2018-2019-girone-5", "descrizione" : "5",  "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "6", "nome": "csp-inverno-2018-2019-girone-6", "descrizione" : "6",  "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "7", "nome": "csp-inverno-2018-2019-girone-7", "descrizione" : "7",  "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "8", "nome": "csp-inverno-2018-2019-girone-8", "descrizione" : "8",  "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "9", "nome": "csp-inverno-2018-2019-girone-9", "descrizione" : "9",  "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "10", "nome": "csp-inverno-2018-2019-girone-10", "descrizione" : "10", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "11", "nome": "csp-inverno-2018-2019-girone-11", "descrizione" : "11", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "12", "nome": "csp-inverno-2018-2019-girone-12", "descrizione" : "12", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "13", "nome": "csp-inverno-2018-2019-girone-13", "descrizione" : "13", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "14", "nome": "csp-inverno-2018-2019-girone-14", "descrizione" : "14", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "15", "nome": "csp-inverno-2018-2019-girone-15", "descrizione" : "15", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "16", "nome": "csp-inverno-2018-2019-girone-16", "descrizione" : "16", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "17", "nome": "csp-inverno-2018-2019-girone-17", "descrizione" : "17", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "18", "nome": "csp-inverno-2018-2019-girone-18", "descrizione" : "18", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "19", "nome": "csp-inverno-2018-2019-girone-19", "descrizione" : "19","partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "20", "nome": "csp-inverno-2018-2019-girone-20", "descrizione" : "20", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "21", "nome": "csp-inverno-2018-2019-girone-21", "descrizione" : "21", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : false,  "risultati" : "{}"}';
+        stgironi += ',{"index": "22", "nome": "csp-inverno-2018-2019-girone-22", "descrizione" : "22", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "23", "nome": "csp-inverno-2018-2019-girone-23", "descrizione" : "23", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "24", "nome": "csp-inverno-2018-2019-girone-24", "descrizione" : "24", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "25", "nome": "csp-inverno-2018-2019-girone-25", "descrizione" : "25", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "26", "nome": "csp-inverno-2018-2019-girone-26", "descrizione" : "26", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "27", "nome": "csp-inverno-2018-2019-girone-27", "descrizione" : "27", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "28", "nome": "csp-inverno-2018-2019-girone-28", "descrizione" : "28", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "29", "nome": "csp-inverno-2018-2019-girone-29", "descrizione" : "29", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "30", "nome": "csp-inverno-2018-2019-girone-30", "descrizione" : "30", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "31", "nome": "csp-inverno-2018-2019-girone-31", "descrizione" : "31", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "32", "nome": "csp-inverno-2018-2019-girone-32", "descrizione" : "32", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "33", "nome": "csp-inverno-2018-2019-girone-33", "descrizione" : "33", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "34", "nome": "csp-inverno-2018-2019-girone-34", "descrizione" : "34", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : false,  "risultati" : "{}"}';
+        stgironi += ',{"index": "35", "nome": "csp-inverno-2018-2019-girone-35", "descrizione" : "35", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "36", "nome": "csp-inverno-2018-2019-girone-36", "descrizione" : "36", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "37", "nome": "csp-inverno-2018-2019-girone-37", "descrizione" : "37", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "38", "nome": "csp-inverno-2018-2019-girone-38", "descrizione" : "38", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "39", "nome": "csp-inverno-2018-2019-girone-39", "descrizione" : "39", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "40", "nome": "csp-inverno-2018-2019-girone-40", "descrizione" : "40", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "41", "nome": "csp-inverno-2018-2019-girone-41", "descrizione" : "41", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "42", "nome": "csp-inverno-2018-2019-girone-42", "descrizione" : "42", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "43", "nome": "csp-inverno-2018-2019-girone-43", "descrizione" : "43", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "44", "nome": "csp-inverno-2018-2019-girone-44", "descrizione" : "44", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "45", "nome": "csp-inverno-2018-2019-girone-45", "descrizione" : "45", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+    /*    stgironi += ',{"index": "46", "nome": "csp-inverno-2018-2019-girone-46", "descrizione" : "46", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "47", "nome": "csp-inverno-2018-2019-girone-47", "descrizione" : "47", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "48", "nome": "csp-inverno-2018-2019-girone-48", "descrizione" : "48", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true, "risultati" : "{}"}';
+        stgironi += ',{"index": "49", "nome": "csp-inverno-2018-2019-girone-49", "descrizione" : "49", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
+        stgironi += ',{"index": "50", "nome": "csp-inverno-2018-2019-girone-50", "descrizione" : "50", "partiteTerminate" : 0, "partiteGirone" : 30, "avviato" : 0, "daCaricare" : true,  "risultati" : "{}"}';
 */        stgironi += ']}';
 
         CAMPIONATO.gironi = JSON.parse(stgironi);   
 
-    // ???????' se si aggiungo giocatori per errore ban aggiungere campi partiteTotali e partiteTerminate    
+    //Aggiorno dati per gironi che non si caricano 
+    CAMPIONATO.gironi.girone[21-1].dataInizio = new Date('2018-12-10');   
+    CAMPIONATO.gironi.girone[21-1].dataFine = "";   
+    CAMPIONATO.gironi.girone[21-1].partiteTerminate = 19;   
+    CAMPIONATO.gironi.girone[21-1].partiteTotali = 20;   
+    CAMPIONATO.gironi.girone[21-1].giocatori = ["fungiat","dag_stinner","tulpicanistan","kmoreteam","thejoker2000"]; 
+    CAMPIONATO.gironi.girone[34-1].dataInizio = new Date('2018-12-31');   
+    CAMPIONATO.gironi.girone[34-1].dataFine = "";   
+    CAMPIONATO.gironi.girone[34-1].partiteTerminate = 14;   
+    CAMPIONATO.gironi.girone[34-1].partiteTotali = 30;   
+    CAMPIONATO.gironi.girone[34-1].giocatori = ["fungiat","cavaliereyedi","themoonlightknight","big-fishy","giampiero111","alderekk"]; 
 
-        //Aggiorno eloDate
+//Girone 21												
+username = 'dag_stinner';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"dag_stinner","displayName":"Dag_Stinner", "id":"https://www.chess.com/member/dag_stinner","avatar":"","elo":"", "punteggio":6.79, "vinte":5, "perse":1, "patte":0, "partiteTotali":8, "partiteTerminate":6,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+username = 'tulpicanistan';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"tulpicanistan","displayName":"Tulpicanistan", "id":"https://www.chess.com/member/tulpicanistan","avatar":"","elo":"", "punteggio":6.41, "vinte":3, "perse":4, "patte":0, "partiteTotali":8, "partiteTerminate":7,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+username = 'kmoreteam';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"kmoreteam","displayName":"kmoreteam", "id":"https://www.chess.com/member/kmoreteam","avatar":"","elo":"", "punteggio":2.76, "vinte":2, "perse":6, "patte":0, "partiteTotali":8, "partiteTerminate":8,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+username = 'thejoker2000';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"thejoker2000","displayName":"thejoker2000", "id":"https://www.chess.com/member/thejoker2000","avatar":"","elo":"", "punteggio":0.0, "vinte":0, "perse":6, "patte":0, "partiteTotali":8, "partiteTerminate":6,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+												
+												
+												
+//Girone 34												
+username = 'alderekk';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"alderekk","displayName":"Alderekk", "id":"https://www.chess.com/member/alderekk","avatar":"","elo":"", "punteggio":4.89, "vinte":1, "perse":0, "patte":0, "partiteTotali":10, "partiteTerminate":2,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+username = 'cavaliereyedi';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"cavaliereyedi","displayName":"cavaliereyedi", "id":"https://www.chess.com/member/cavaliereyedi","avatar":"","elo":"", "punteggio":3.28, "vinte":1, "perse":1, "patte":0, "partiteTotali":10, "partiteTerminate":2,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+username = 'themoonlightknight';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"themoonlightknight","displayName":"TheMoonlightKnight", "id":"https://www.chess.com/member/themoonlightknight","avatar":"","elo":"", "punteggio":2.0, "vinte":0, "perse":2, "patte":0, "partiteTotali":10, "partiteTerminate":2,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+username = 'big-fishy';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"big-fishy","displayName":"Big-Fishy", "id":"https://www.chess.com/member/big-fishy","avatar":"","elo":"", "punteggio":2.0, "vinte":0, "perse":0, "patte":0, "partiteTotali":10, "partiteTerminate":0,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+username = 'giampiero111';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"giampiero111","displayName":"Giampiero111", "id":"https://www.chess.com/member/giampiero111","avatar":"","elo":"", "punteggio":0.0, "vinte":0, "perse":0, "patte":0, "partiteTotali":10, "partiteTerminate":0,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+												
+//Più gironi												
+username = 'fungiat';CAMPIONATO.giocatori[username] = {}; stgiocatore = '{"username":"fungiat","displayName":"Fungiat", "id":"https://www.chess.com/member/fungiat","avatar":"","elo":"", "punteggio":10.43, "vinte":9, "perse":1, "patte":0, "partiteTotali":18, "partiteTerminate":11,"gironi":"", "stampato":false, "accountChiuso":false}';CAMPIONATO.giocatori[username] = JSON.parse(stgiocatore);												
+
+//Aggiorno eloDate
     for (var username in CAMPIONATO.giocatori) {
-        CAMPIONATO.giocatori[username].eloDate = new Date("2018-01-01");
+        CAMPIONATO.giocatori[username].eloDate = new Date("2019-01-01");
     }
 
 //https://api.chess.com/pub/tournament/csp-inverno-2018-2019-girone-1/1/1
@@ -184,7 +212,7 @@ CAMPIONATO = {
         //Per tutti i gironi
         for (var i in CAMPIONATO.gironi.girone) {
             //Se il girone non è iniziato continuo
-            if (CAMPIONATO.gironi.girone[i].avviato > 0)
+            if (CAMPIONATO.gironi.girone[i].avviato > 0 || !CAMPIONATO.gironi.girone[i].daCaricare)
                 continue;
     
            //Aggiorno partite totali del girone
@@ -197,8 +225,9 @@ CAMPIONATO = {
                     //Se non ho trovato giocatore lo aggiungo
                     if (!CAMPIONATO.giocatori[username.toLowerCase()])
                         CAMPIONATO.creaGiocatore(username);
+                   
                     //Se non ancora presente aggiungo il girone al giocatore
-                    if (CAMPIONATO.giocatori[username.toLowerCase()].gironi.indexOf(CAMPIONATO.gironi.girone[i].nome) < 0)
+                    if (CAMPIONATO.giocatori[username.toLowerCase()].gironi.indexOf(CAMPIONATO.gironi.girone[i].nome + '/') < 0)
                     {
                         CAMPIONATO.giocatori[username.toLowerCase()].gironi += '<a href="https://www.chess.com/tournament/' + CAMPIONATO.gironi.girone[i].nome + '/pairings/" target=”_blank”>' + CAMPIONATO.gironi.girone[i].index + '</a> - ';
                         //E aggiorno le partite totali
@@ -556,7 +585,7 @@ CAMPIONATO = {
             //Se ho terminato tutte le partite scrivo in verde
             var colore = "";
             var dataFine = "";
-            if (CAMPIONATO.gironi.girone[i].partiteTerminate == 30)
+            if (CAMPIONATO.gironi.girone[i].partiteTerminate == CAMPIONATO.gironi.girone[i].partiteGirone)
             {
                 colore = 'style="color:green!important"';
                 var end_time
@@ -585,6 +614,22 @@ CAMPIONATO = {
             CAMPIONATO.gironi.girone[i].descrizione + '</a></td><td class="gironi-col">' + dataInizio + '</td> <td class="gironi-col">' + dataFine + '</td> ' +
             '<td class="gironi-col">' + CAMPIONATO.gironi.girone[i].partiteTerminate + ' / ' + CAMPIONATO.gironi.girone[i].partiteGirone + ' </td> </tr>');
         }
+
+        //Scrivo i dati dei giocatori totali nelle intestazioni
+        var totaleGiocatori = 0;
+        for (var i in CAMPIONATO.giocatori) 
+            totaleGiocatori ++;
+        var totaleTerminate = 0;
+        var totalePartite = 0;
+        for (var i in CAMPIONATO.gironi.girone) {
+            if (CAMPIONATO.gironi.girone[i].avviato == 0) {
+                totaleTerminate += CAMPIONATO.gironi.girone[i].partiteTerminate;
+                totalePartite += CAMPIONATO.gironi.girone[i].partiteGirone;
+            }
+        } 
+        $("#nGiocatori").html(totaleGiocatori);
+        $("#partiteTerminate").html(totaleTerminate + '/' + totalePartite);
+
     },
     calcolaClassificaU1300: function()
     {
@@ -624,9 +669,9 @@ CAMPIONATO = {
             posizione.N += posizione.pari + 1;
             posizione.oldPunti = newPunteggio;
             posizione.oldVinte = newVinte;
+            //Azzero pari
+            posizione.pari = 0;
         }
-        //Azzero pari
-        posizione.pari = 0;
 
         //Aggiorno posizione
         CAMPIONATO.giocatori[username].U1300 = posizione.N;
@@ -671,9 +716,9 @@ CAMPIONATO = {
             posizione.N += posizione.pari + 1;
             posizione.oldPunti = newPunteggio;
             posizione.oldVinte = newVinte;
+            //Azzero pari
+            posizione.pari = 0;
         }
-        //Azzero pari
-        posizione.pari = 0;
 
         //Aggiorno posizione
         CAMPIONATO.giocatori[username].U1500 = posizione.N;
@@ -718,9 +763,9 @@ CAMPIONATO = {
             posizione.N += posizione.pari + 1;
             posizione.oldPunti = newPunteggio;
             posizione.oldVinte = newVinte;
+            //Azzero pari
+            posizione.pari = 0;
         }
-        //Azzero pari
-        posizione.pari = 0;
 
         //Aggiorno posizione
         CAMPIONATO.giocatori[username].U1700 = posizione.N;
@@ -781,9 +826,9 @@ CAMPIONATO = {
             posizione.N += posizione.pari + 1;
             posizione.oldPunti = newPunteggio;
             posizione.oldVinte = newVinte;
+            //Azzero pari
+            posizione.pari = 0;
         }
-        //Azzero pari
-        posizione.pari = 0;
 
         //La posizione potrebbe contenere delle immagini
         var stPosizione = '#' + posizione.N;
@@ -869,7 +914,17 @@ CAMPIONATO = {
             myPunteggio += '  <span class="tooltiptext">' + CAMPIONATO.giocatori[username].calcoloPunti + '</span>';
             myPunteggio += '</div>';
         }
-       //stampo riga    
+
+        //ordino gironi
+        var arGironi;
+        var stGironi = '';
+        arGironi = CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2).split(' - ');
+        arGironi.sort(CAMPIONATO.compareGironi);
+        for (var i in arGironi) {
+            stGironi += arGironi[i] + ' - ';
+        }
+
+        //stampo riga    
         $("#giocatori").append('<tr class="classifica-giocatori">' +
             '<td class="classifica-col1">' + stPosizione + '</td>' +  
             '<td class="classifica-col1SEP"></td>' + 
@@ -892,7 +947,7 @@ CAMPIONATO = {
             '</td>' +
             '<td class="classifica-col5">' + stCompletate + '</td>' +
             '<td class="classifica-col6"></td>' +
-            '<td class="classifica-col7">' + CAMPIONATO.giocatori[username].gironi.substr(0, CAMPIONATO.giocatori[username].gironi.length -2) + '</td>' +
+            '<td class="classifica-col7">' + stGironi.substr(0, stGironi.length - 2) + '</td>' +
             '</tr>'
             );
 
@@ -975,7 +1030,14 @@ CAMPIONATO = {
             //NB NB SE IL CARICAMENTO NON VA A BUON FINE VIENE RIPETUTO NELLA FUNZIONE getAvatarUrl
         })    
 
+    },
+    compareGironi : function (a,b) {
+        if (parseInt(a.substring(a.indexOf('>')+1, a.substring(1,a.length-1).indexOf('<')+1)) < parseInt(b.substring(b.indexOf('>')+1, b.substring(1,b.length-1).indexOf('<')+1)))
+            return  -1;
+        else
+            return  1;
     }
- }
+
+}
 
 
