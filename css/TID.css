@@ -88,11 +88,11 @@
 }   
 .classifica-col3 {
     width:120px;
-    text-align:left;
+    text-align:center;
 }   
 .classifica-col4 {
     width:130px;
-    text-align:left;
+    text-align:center;
 }   
 .classifica-col5 {
     width:90px;
@@ -230,7 +230,7 @@
   /* Tooltip text */
   .tooltip .tooltiptext {
     visibility: hidden;
-    width: 320px;
+    width: 120px;
     background-color: #555;
     color: #fff;
     text-align: left;
@@ -243,7 +243,7 @@
     z-index: 1;
     top: 125%;
     left: 50%;
-    margin-left: -150px;
+    margin-left: -50px;
   
     /* Fade in tooltip */
     opacity: 0;

@@ -9,14 +9,12 @@
 
 
 <!--
-<script>document.write('<script type="text/javascript"  src="js/campionatoSociale2019I.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
+<script>document.write('<script type="text/javascript"  src="js/schemi.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
 <script>document.write('<link rel="stylesheet" href="css/TID.css?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
 -->
-<script>document.write('<script type="text/javascript"  src="js/campionatoSociale2019I.js"\><\/script>');</script>
+<script>document.write('<script type="text/javascript"  src="js/schemi.js"\><\/script>');</script>
 <script>document.write('<link rel="stylesheet" href="css/TID.css"\><\/script>');</script>
-<!--
-<script>document.write('<script type="text/javascript"  src="js/inviti.js"\><\/script>');</script>
--->
+
 
 </head>
 
@@ -33,7 +31,7 @@
     
 <body>
     
-<!--                            INTESTAZIONE                                        -->   
+<!--                            INTESTAZIONE    1                                    -->   
 <main align=”center” class="frame-principale"> 
 <div class="intestazione-img">
     <a href="https://www.chess.com/club/team-italia-doc"  target=”_blank”> <img height="125" width="125" src="img\TID.png"></a>
@@ -41,51 +39,29 @@
 <div>
     <h1 class="intestazione-titolo">Campionato Sociale Team Italia DOC</h1>
     <br>
-    <h1 class="intestazione-piede">Classifica Inverno 2018-2019</h1>
+    <h1 class="intestazione-piede">Scuola scacchi</h1>
 </div>
-<BR>
+
+<BR>  
     <div class="header-partite">
-    <span style="margin-left:160px">Giocatori: </span>
-    <span id="nGiocatori"></span>
-    <span style="margin-left:20px">Partite terminate</span>
-    <span id="partiteTerminate"></span>
+    <span style="margin-left:10px">Esami totali: </span>
+    <span id="esamiTot"></span>
 </div>
-    <!--                            CLASSIFICA                                      -->   
+<!--                            CLASSIFICA                                      -->   
 <div>
-<table  id="giocatori" class="classifica-tabella">
+<table  id="classifica" class="classifica-tabella">
 
     <tr class="classifica-intestazione">
         <td class="classifica-col1"></td> <!-- posizione -->
         <td class="classifica-col1SEP">  </td>
         <td class="classifica-col2">Giocatore</td> 
-        <td class="classifica-col3">Punteggio <span style="font-size: 10px;"><BR>(Avvicinarsi per dettagli)</span></td>
-        <td class="classifica-col4">Risultati</td>
-        <td class="classifica-col5">Prossimo turno</td>
-        <td class="classifica-col6"></td>
-        <td class="classifica-col7"> Gironi </td>
+        <td class="classifica-col3">Pagella <span style="font-size: 10px;"><BR>(Avvicinarsi per dettagli)</span></td>
+        <td class="classifica-col4">Esami sostenuti</td>
+        <td class="classifica-col5">% Esami</td>
     </tr>
         </table>
 
 </div>
-
-<!--                            SEPARATORE                                      -->   
-<table align="left" width="950px" height="100px">
-        <tr> </tr>
-        <!--<tr> <td> <a href="https://teamitaliadoc.github.io/campionatoSociale/index.html">Vai a classifica provvisoria </a></td></tr>-->
-        <tr> </tr>
-    <tr> <td><h1 class="intestazione-gironi">Gironi</h1></td> </tr>
-</table>
-<!--                            GIRONI                                      -->   
-<div>
-    <table  id="gironi" class="gironi-tabella">
-        <tr class="gironi-intestazione">
-            <td class="gironi-col1">Girone</td> 
-            <td class="gironi-col">Iniziato</td> 
-            <td class="gironi-col">Terminato</td> 
-            <td class="gironi-col">Partite concluse</td>
-        </tr>
-
-    </table>
     
 <!--                            IMMAGINE  -  LOGO   -->
     <table  width="950px" height="50px" class="Powered">
@@ -104,7 +80,7 @@
 
 
     <script type="text/javascript"> 
-        CAMPIONATO.inizializzaGironi();
+        setClassifica();
     </script>
 </main>
 
