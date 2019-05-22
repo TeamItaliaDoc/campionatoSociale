@@ -12,11 +12,13 @@
 <script>document.write('<script type="text/javascript"  src="js/campionatoSociale2019I.js?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
 <script>document.write('<link rel="stylesheet" href="css/TID.css?dev=' + Math.floor(Math.random() * 100) + '"\><\/script>');</script>
 -->
-<script>document.write('<script type="text/javascript"  src="js/campionatoSociale2019I.js"\><\/script>');</script>
-<script>document.write('<link rel="stylesheet" href="css/TID.css"\><\/script>');</script>
 <!--
-<script>document.write('<script type="text/javascript"  src="js/inviti.js"\><\/script>');</script>
+<script>document.write('<script type="text/javascript"  src="js/campionatoSociale2019I.js"\><\/script>');</script>
+<script>document.write('<script type="text/javascript"  src="js/campionatoSociale2019I.js"\><\/script>');</script>
 -->
+<script>document.write('<script type="text/javascript"  src="js/Players.js"\><\/script>');</script>
+<script>document.write('<script type="text/javascript"  src="js/tematici.js"\><\/script>');</script>
+<script>document.write('<link rel="stylesheet" href="css/TID.css"\><\/script>');</script>
 
 </head>
 
@@ -31,93 +33,23 @@
     }   
 </script>
     
-<body>
+<body style="background-color: white">
     
 <!--                            INTESTAZIONE                                        -->   
-<main align=”center” class="frame-principale"> 
-<div class="intestazione-img">
-    <a href="https://www.chess.com/club/team-italia-doc"  target=”_blank”> <img height="125" width="125" src="img\TID.png"></a>
-</div>
-<div>
-    <h1 class="intestazione-titolo">Campionato Sociale Team Italia DOC</h1>
-    <br>
-    <h1 class="intestazione-piede">Classifica Inverno 2018-2019</h1>
-    <HR>
-</div>
-
-<!--                            Menu                                        -->   
-<spam class="menu" ><a class="menu" href="https://teamitaliadoc.github.io/campionatoSociale2018/index.html">Campionato sociale 2018 </a>
-</spam>
-<spam class="menuOk">Campionato sociale 2019 Inverno </spam>
-<spam class="menu" >
-    <a  class="menu" href="https://teamitaliadoc.github.io/hallOfFame/index.html?d">Hall of fame </a>
-</spam>
-<!--                            Label partite                                        -->   
-<HR> <BR>
-    <div class="header-partite">
-    <span style="margin-left:10px">Giocatori: </span>
-    <span id="nGiocatori"></span>
-    <span style="margin-left:33px">Partite terminate: </span>
-    <span id="partiteTerminate"></span>
-</div>
-    <!--                            CLASSIFICA                                      -->   
-<div>
-<table  id="giocatori" class="classifica-tabella">
-
-    <tr class="classifica-intestazione">
-        <td class="classifica-col1"></td> <!-- posizione -->
-        <td class="classifica-col1SEP">  </td>
-        <td class="classifica-col2">Giocatore</td> 
-        <td class="classifica-col3">Punteggio <span style="font-size: 10px;"><BR>(Avvicinarsi per dettagli)</span></td>
-        <td class="classifica-col4">Risultati</td>
-        <td class="classifica-col5">Prossimo turno</td>
-        <td class="classifica-col6"></td>
-        <td class="classifica-col7"> Gironi </td>
-    </tr>
-        </table>
-
-</div>
-
-<!--                            SEPARATORE                                      -->   
-<table align="left" width="950px" height="100px">
-        <tr> </tr>
-        <!--<tr> <td> <a href="https://teamitaliadoc.github.io/campionatoSociale/index.html">Vai a classifica provvisoria </a></td></tr>-->
-        <tr> </tr>
-    <tr> <td><h1 class="intestazione-gironi">Gironi</h1></td> </tr>
-</table>
-<!--                            GIRONI                                      -->   
-<div>
-    <table  id="gironi" class="gironi-tabella">
-        <tr class="gironi-intestazione">
-            <td class="gironi-col1">Girone</td> 
-            <td class="gironi-col">Iniziato</td> 
-            <td class="gironi-col">Terminato</td> 
-            <td class="gironi-col">Partite concluse</td>
-            <td class="gironi-col">N. giocatori</td>
-        </tr>
-
-    </table>
-    
-<!--                            IMMAGINE  -  LOGO   -->
-    <table  width="950px" height="50px" class="Powered">
-    <tr>
-        <td></td> 
-    </tr>
-</table>
-
-<table  width="950px"   class="Powered">
-
-    <tr>
-            <td align="left" width="950px">Realizzato da Sandro2116 & TheMoonlightKnight</td> 
-        </tr>
-    </table> 
-
-
+<main> 
 
     <script type="text/javascript"> 
-        CAMPIONATO.inizializzaGironi();
+      //  getPlayers();
+      //getElo();
+      //getDoc();
+      //updatePlayersDoc();
+      //getGiocatoriXGruppo();
+      controllaTematici();
+
     </script>
+      
 </main>
 
+</body>
 </html>
 
