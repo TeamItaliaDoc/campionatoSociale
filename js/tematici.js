@@ -30,7 +30,7 @@ function controllaTematici() {
         $.getJSON(tornei[nomeTorneo].url,function(data){
             document.write('<br> <br> -------- ' + nomeTorneo + ' --------');
             for (var iGiocatore in data.players) {
-               if (data.players[iGiocatore].status == 'registered') {
+               if (data.players[iGiocatore].status == 'registered' || data.players[iGiocatore].status == 'active') {
                     var username = data.players[iGiocatore].username;
                     if (! giocatori[username])  {
                         //Creo giocatore
