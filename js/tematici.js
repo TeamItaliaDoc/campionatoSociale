@@ -5,40 +5,53 @@ function controllaTematici() {
     tornei['Siciliana'] = {};
     tornei['Siciliana'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-1-siciliana-najdorf';
     tornei['Siciliana'].index = 1;
+    tornei['Siciliana'].partito = '';
     tornei['Francese'] = {};
     tornei['Francese'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-2-francese-winawer';
     tornei['Francese'].index = 2;
+    tornei['Francese'].partito = '';
     tornei['Semislava'] = {};
     tornei['Semislava'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-3-semislava';
     tornei['Semislava'].index = 3;
+    tornei['Semislava'].partito = '';
     tornei['Difesa moderna'] = {};
     tornei['Difesa moderna'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-4-difesa-moderna';
     tornei['Difesa moderna'].index = 4;
+    tornei['Difesa moderna'].partito = '';
+    tornei['Semislava'].partito = '';
     tornei['Benoni'] = {};
     tornei['Benoni'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-5-benoni-moderna';
     tornei['Benoni'].index = 5;
+    tornei['Benoni'].partito = '';
     tornei['Olandese'] = {};
     tornei['Olandese'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-6-olandese-leningrado';
     tornei['Olandese'].index = 6;
+    tornei['Olandese'].partito = '';
     tornei['Ruy-Lopez'] = {};
     tornei['Ruy-Lopez'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-7-ruy-lopez';
     tornei['Ruy-Lopez'].index = 7;
+    tornei['Ruy-Lopez'].partito = '';
     tornei['Pirc'] = {};
     tornei['Pirc'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-8-difesa-pirc-classica';
     tornei['Pirc'].index = 8;
+    tornei['Pirc'].partito = '';
     tornei['Est Indiana'] = {};
     tornei['Est Indiana'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-9-est-indiana';
     tornei['Est Indiana'].index = 9;
+    tornei['Est Indiana'].partito = '';
     tornei['Caro-Kann'] = {};
     tornei['Caro-Kann'].url = 'https://api.chess.com/pub/tournament/torneo-tematico-n-10-caro-kann-panov';
     tornei['Caro-Kann'].index = 10;
+    tornei['Caro-Kann'].partito = '';
 
     for (var nomeTorneo in tornei) {
         $.ajaxSetup({
             "async": false
         });
         $.getJSON(tornei[nomeTorneo].url,function(data){
-            document.write('<br> <br> -------- ' + tornei[nomeTorneo].index + ' - ' + nomeTorneo + ' --------');
+            if (data.status == 'in_progress')
+                tornei[nomeTorneo].partito = '*';
+            document.write('<br> <br> -------- ' + tornei[nomeTorneo].index + tornei[nomeTorneo].partito + ' - ' + nomeTorneo + ' --------');
             for (var iGiocatore in data.players) {
                if (data.players[iGiocatore].status == 'registered' || data.players[iGiocatore].status == 'active') {
                     var username = data.players[iGiocatore].username;
@@ -50,7 +63,7 @@ function controllaTematici() {
                         giocatori[username].nTornei = 0;
                     }
                     giocatori[username].torneo[nomeTorneo] = 'OK';
-                    giocatori[username].lista += tornei[nomeTorneo].index + ', ';
+                    giocatori[username].lista += tornei[nomeTorneo].index + tornei[nomeTorneo].partito + ', ';
                     giocatori[username].nTornei ++;
                     document.write('<br>' + giocatori[username].nTornei + ' - ' + username);
                }
