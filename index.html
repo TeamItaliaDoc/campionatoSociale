@@ -18,6 +18,7 @@
 -->
 <script>document.write('<script type="text/javascript"  src="js/Players.js"\><\/script>');</script>
 <script>document.write('<script type="text/javascript"  src="js/tematici.js"\><\/script>');</script>
+<script>document.write('<script type="text/javascript"  src="js/elo.js"\><\/script>');</script>
 <script>document.write('<link rel="stylesheet" href="css/TID.css"\><\/script>');</script>
 
 </head>
@@ -31,6 +32,12 @@
     {
         CAMPIONATO.isAdmin = true;
     }   
+    if (query == 'elo')
+    {
+        showElo();
+    } else {  
+      controllaTematici();
+    }
 </script>
     
 <body style="background-color: white">
@@ -44,7 +51,7 @@
       //getDoc();
       //updatePlayersDoc();
       //getGiocatoriXGruppo();
-      controllaTematici();
+      //controllaTematici();
 
     </script>
       
