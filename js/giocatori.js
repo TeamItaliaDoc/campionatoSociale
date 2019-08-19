@@ -161,7 +161,7 @@ function calcolaClassificaGiocatori()
         for (var i in giocatori[username].userVinte)
             giocatori[username].puntiSpareggio += giocatori[giocatori[username].userVinte[i]].punti;
         for (var i in giocatori[username].userpatte)
-            giocatori[username].puntiSpareggio += giocatori[giocatori[username].userVinte[i]].punti / 2;
+            giocatori[username].puntiSpareggio += giocatori[giocatori[username].userPatte[i]].punti / 2;
     }
 
     //Imposto posizione e salvo
@@ -209,7 +209,7 @@ function stampaGiocatore(username)
     //stampo riga    
     $("#giocatori").append('<tr class="classifica-giocatori">' +
         '<td class="classifica-col1">' + giocatori[username].posizione + '</td>' +  
-        '<td class="classifica-col1SEP"></td>' + 
+        '<td class="giocatori-col1SEP"></td>' + 
         '<td class="classifica-col2">' +
         '    <table><tr>' +
         '        <td>' +

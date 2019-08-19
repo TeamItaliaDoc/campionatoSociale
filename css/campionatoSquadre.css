@@ -14,7 +14,7 @@
     background-color: #fff;
     margin-top: 10px;
     position: absolute;
-    width:1005px;
+    width:1520px;
     margin-left: -500px;
     left: 50%;
 }
@@ -48,16 +48,14 @@
 .menu
 {
     font-size: 1.0rem;
-    margin-left:10px;
     text-decoration: none;
     color: black;
 }
 .menuOk
 {
     font-size: 1.0rem;
-    margin-left:10px;
     border-bottom: 3px solid #1A73E8;
-    color: #1A73E8;
+    color: #1A73E8;    
 }
 .header-partite
 {
@@ -69,12 +67,48 @@
 {
     margin-left: 10px;
     background-color: transparent;
-    font-size: 1.3rem;
+    font-size: 12px;
     border-collapse: collapse;
     border-spacing: 0;
     line-height: 1.42857143;
     color: #312e2b;
-    width:950px;
+    width:1500px;
+}
+.classifica-nameTeam
+{
+    font-weight:800; 
+    background-color:#E2E2FF;
+    font-size: 12px;
+    color:black;
+    vertical-align: middle;
+    text-align: center;
+    width:100;
+    border: 1px solid black;
+    padding: 2px;    
+}
+.classifica-icon
+{
+    font-weight:800; 
+    font-size: 12px;
+    color:black;
+    vertical-align: middle;
+    text-align: center;
+    width:100;
+    border: 1px solid black;
+    padding: 2px;    
+    font-weight: normal;
+}
+.classifica-risultati
+{
+    font-weight:800; 
+    font-size: 12px;
+    color:black;
+    vertical-align: middle;
+    text-align: center;
+    width:100;
+    border: 1px solid black;
+    padding: 2px;    
+    font-weight: normal;
 }
 .classifica-intestazione
 {
@@ -94,7 +128,8 @@
     text-align:center;
 }   
 .classifica-col1SEP {
-    width:10px;
+    width:3px;
+    background-color:black;
 }   
 .classifica-col2 {
     width:220px;
@@ -190,7 +225,14 @@
     font-size: 14px;
     text-align: right;
     border-bottom: 1px solid #ececec;
+    width: 1000;
+    border-collapse: collapse
 }
+.gironi-col1SEP {
+    width:10px;
+    background-color:gray;
+    border: 0px;
+}   
 
 .gironi-intestazione
 {
