@@ -2,7 +2,6 @@
 {
     font-family: "arial";
     height: 100%;
-    width: 100%;
     margin: 0;
     overflow: hidden;
     background-color: black;
@@ -16,7 +15,7 @@
     margin-top: 10px;
     position: absolute;
     width:1520px;
-    margin-left: -500px;
+    margin-left: -750px;
     left: 50%;
 }
 .intestazione-img
