@@ -3,6 +3,7 @@
 
 //https://api.chess.com/pub/club/i-bagna-cauda
 //https://api.chess.com/pub/club/i-4-formaggi-doc/matches
+//https://api.chess.com/pub/club/team-italia-doc/matches
 
 var calcolaClassificaRun = false;
 var classificaTeams = [];
@@ -21,21 +22,27 @@ teams['i-4-scacchi-di-lasagne']={"name":"I 4 Scacchi di Lasagne","club_id":79504
 teams['gli-ultimi-saranno-i-primi-i-secondi-o-i-contorni']={"name":"gli ultimi saranno i primi i secondi o i contorni","club_id":78984,"icon":"https://images.chesscomfiles.com/uploads/v1/group/78984.0fe19eef.50x50o.008a63d2fd9a.jpeg","url":"https://www.chess.com/club/gli-ultimi-saranno-i-primi-i-secondi-o-i-contorni","punti":0,"penalità":0,"puntiSpareggio":0, "posizione":0, "teamVinte" : [], "teamPatte" : []};
 teams['team-fastfood-doc']={"name":"Team FastFood DOC","club_id":79318,"icon":"https://images.chesscomfiles.com/uploads/v1/group/79318.d534e8da.50x50o.927f535ba0c6.png","url":"https://www.chess.com/club/team-fastfood-doc","punti":0,"penalità":0,"puntiSpareggio":0, "posizione":0, "teamVinte" : [], "teamPatte" : []};
 
+var matchs = [];
+matchs[11] = {"penalità1":0.5,"penalità2":0.5,"id":"https://api.chess.com/pub/match/1031850", "daCaricare":true, "punti1":0, "punti2":0};
+matchs[12] = {"penalità1":0,"penalità2":0.5,"id":"https://api.chess.com/pub/match/1031852", "daCaricare":true, "punti1":0, "punti2":0};
+matchs[13] = {"penalità1":0,"penalità2":0,"id":"https://api.chess.com/pub/match/1031854", "daCaricare":true, "punti1":0, "punti2":0};
+matchs[14] = {"penalità1":0.5,"penalità2":0.5,"id":"https://api.chess.com/pub/match/1031856", "daCaricare":true, "punti1":0, "punti2":0};
+matchs[15] = {"penalità1":0.5,"penalità2":0,"id":"https://api.chess.com/pub/match/1031862", "daCaricare":true, "punti1":0, "punti2":0};
+matchs[16] = {"penalità1":0.5,"penalità2":0,"id":"https://api.chess.com/pub/match/1031858", "daCaricare":true, "punti1":0, "punti2":0};
 
-var match = [];
-match[11] = {"penalità1":0.5,"penalità2":0.5,"id":"https://api.chess.com/pub/match/1031850", "daCaricare":true, "punti1":0, "punti2":0};
-match[12] = {"penalità1":0,"penalità2":0.5,"id":"https://api.chess.com/pub/match/1031852", "daCaricare":true, "punti1":0, "punti2":0};
-match[13] = {"penalità1":0,"penalità2":0,"id":"https://api.chess.com/pub/match/1031854", "daCaricare":true, "punti1":0, "punti2":0};
-match[14] = {"penalità1":0.5,"penalità2":0.5,"id":"https://api.chess.com/pub/match/1031856", "daCaricare":true, "punti1":0, "punti2":0};
-match[15] = {"penalità1":0.5,"penalità2":0,"id":"https://api.chess.com/pub/match/1031862", "daCaricare":true, "punti1":0, "punti2":0};
-match[16] = {"penalità1":0.5,"penalità2":0,"id":"https://api.chess.com/pub/match/1031858", "daCaricare":true, "punti1":0, "punti2":0};
 
+
+teams['team-italia-doc']={"name":"Team Italia DOC","club_id":79318,"icon":"https://images.chesscomfiles.com/uploads/v1/group/65264.ad20dc08.50x50o.1ba052e2d947.png","url":"https://www.chess.com/club/team-fastfood-doc","punti":0,"penalità":0,"puntiSpareggio":0, "posizione":0, "teamVinte" : [], "teamPatte" : []};
+teams['essex-county-chess-group']={"name":"Essex County Chess-Group","club_id":79318,"icon":"https://images.chesscomfiles.com/uploads/v1/group/5140.5fe353d8.50x50o.b653b7d9fcb8.gif","url":"https://www.chess.com/club/team-fastfood-doc","punti":0,"penalità":0,"puntiSpareggio":0, "posizione":0, "teamVinte" : [], "teamPatte" : []};
+
+
+matchs[21] = {"penalità1":0,"penalità2":0,"id":"https://api.chess.com/pub/match/910346", "daCaricare":true, "punti1":0, "punti2":0};
 
 
 function elabora() {
     //Carico i dati di tutti i match
-    for (var i in match) {
-        caricaMatch(i, match[i].id);
+    for (var i in matchs) {
+        caricaMatch(i, matchs[i].id);
     };
 }
 
@@ -48,31 +55,33 @@ function caricaMatch(index, url)
         var team1 = data.teams.team1.url.substr(27, data.teams.team1.url.length-27);
         var team2 = data.teams.team2.url.substr(27, data.teams.team2.url.length-27);
         //Aggiorno partite
-        match[index].url = data.url;
-        match[index].boards = data.boards;
-        match[index].team1 = team1;
-        match[index].team2 = team2;
+        matchs[index].url = data.url;
+        matchs[index].boards = data.boards;
+        matchs[index].team1 = team1;
+        matchs[index].team2 = team2;
+        matchs[index].score1 = data.teams.team1.score;
+        matchs[index].score2 = data.teams.team2.score;
         if (data.teams.team1.score > data.teams.team2.score) 
         {
-            match[index].punti1 ++;
+            matchs[index].punti1 ++;
             teams[team1].teamVinte.push(team2);
         }    
         if (data.teams.team1.score < data.teams.team2.score) 
         {
-            match[index].punti2 ++;
+            matchs[index].punti2 ++;
             teams[team2].teamVinte.push(team1);
         }    
         if (data.teams.team1.score == data.teams.team2.score) {
-            match[index].punti1 += 0.5;
-            match[index].punti2 += 0.5;
+            matchs[index].punti1 += 0.5;
+            matchs[index].punti2 += 0.5;
             teams[team1].teamPatte.push(team2);
             teams[team2].teamPatte.push(team1);
         } 
         //Aggiorno punteggi team
-        teams[team1].penalità += match[index].penalità1;
-        teams[team2].penalità += match[index].penalità2;
-        teams[team1].punti += match[index].punti1 - match[index].penalità1;
-        teams[team2].punti += match[index].punti2 - match[index].penalità2;
+        teams[team1].penalità += matchs[index].penalità1;
+        teams[team2].penalità += matchs[index].penalità2;
+        teams[team1].punti += matchs[index].punti1 - matchs[index].penalità1;
+        teams[team2].punti += matchs[index].punti2 - matchs[index].penalità2;
 
         //Controllo giocatori
         var username1 = '';
@@ -89,9 +98,9 @@ function caricaMatch(index, url)
         }
 
         //Se ho caricato tutti i dati calcolo la classifica
-        match[index].daCaricare = false;
-        for (var i in match) {
-            if (match[i].daCaricare) {
+        matchs[index].daCaricare = false;
+        for (var i in matchs) {
+            if (matchs[i].daCaricare) {
                 return;
             }
         }
@@ -112,8 +121,8 @@ function caricaMatch(index, url)
         {
             console.log('ERRORE ricarico dati: ' + this.url);
             var index = 0;
-                for (var i in match) {
-                    if (match[i].url = this.url)
+                for (var i in matchs) {
+                    if (matchs[i].url = this.url)
                         index = i;
                 };
                 caricaMatch(index, this.url);    
@@ -178,6 +187,14 @@ function calcolaClassifica()
     }
 
     //Stampo la classifica
+    var url  = '';
+    var stile = '';
+    var stileTD = '';
+    var gruppoAvversario = '';
+    var risultato = '';
+    var boards = '';
+    var score1 = 0;
+    var score2 = 0;
     //Riga con nomi teams    
     var stRiga = '<tr class="classifica-nameTeam">' +
             '<td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;"></td>' +
@@ -198,7 +215,7 @@ function calcolaClassifica()
     //Riga team
     for (var i in classificaTeams)         
     {
-        var gruppo = classificaTeams[i];
+        gruppo = classificaTeams[i];
         stRiga = '<tr class="classifica-risultati">' +
             '<td class="classifica-risultati" style="width:50px;">' + teams[gruppo].posizione + '</td>' +
             '<td class="classifica-risultati" style="width:100px;border: 0px;"> <a style="color:black;text-decoration: none;font-weight: normal;" href="' + teams[classificaTeams[i]].url + '" target=”_blank”> ' + teams[classificaTeams[i]].name + '</a></td>' +
@@ -208,7 +225,88 @@ function calcolaClassifica()
             '<td class="classifica-risultati">' + teams[gruppo].penalità + '</td>' +
             '<td class="classifica-col1SEP" style="border: 0px;"></td>'; 
         for (var ii in classificaTeams)         
-            stRiga += '<td class="classifica-risultati">  </td>';
+        {
+            gruppoAvversario  = classificaTeams[ii];
+            stile = '';
+            stileTD = '';
+            risultato = '';
+            if  (gruppo == gruppoAvversario)
+            {
+                stile = 'background-color:#b3b3b3;';
+            } else {
+                //Ricerco partita
+                boards = 0;
+                url = '';
+                for (var partita in matchs)         
+                {
+                    //team da stampare sulla riga è team1
+                    if (matchs[partita].team1 == gruppo && matchs[partita].team2 == gruppoAvversario)
+                    {
+                        url = matchs[partita].url;
+                        boards = matchs[partita].boards;
+                        score1 = matchs[partita].score1;
+                        score2 = matchs[partita].score2;
+                    } 
+                    //team da stampare sulla riga è team2
+                    if (matchs[partita].team2 == gruppo && matchs[partita].team1 == gruppoAvversario)
+                    {
+                        url = matchs[partita].url;
+                        boards = matchs[partita].boards;
+                        score1 = matchs[partita].score2;
+                        score2 = matchs[partita].score1;
+                    }
+                }
+
+                //Se la partita esiste
+                if (boards > 0)
+                {
+                    //Se terminata
+                    if (boards * 2 == score1 + score2)
+                    {
+                        //Pareggio
+                        if (score1 == score2)
+                        {
+                            risultato = '0.5 - 0.5 <BR> (' + score1 + ' - ' + score2 + ')';
+                            stileTD = 'style="background-color:blue;"';
+                            stile = 'color:black;';
+                        } 
+                        //Vinto team 1
+                        if (score1 > score2)
+                        {
+                            risultato = '1 - 0 <BR> (' + score1 + ' - ' + score2 + ')';
+                            stileTD = 'style="background-color:green;"';
+                            stile = 'color:black;';
+                        } 
+                        //Vinto team 2
+                        if (score1 < score2)
+                        {
+                            risultato = '1 - 0 <BR> (' + score1 + ' - ' + score2 + ')';
+                            stileTD = 'style="background-color:red;"';
+                            stile = 'color:black;';
+                        } 
+                    } else {
+                        //Match da terminare
+                        risultato = score1 + ' - ' + score2 + '<BR> (In corso ' + ((boards*2) - (score1+score2)) + ')';
+                        //Pareggio
+                        if (score1 == score2)
+                            stile = 'color:blue;';
+                        //Vinto team 1
+                        if (score1 > score2)
+                            stile = 'color:green;';
+                        //Vinto team 2
+                        if (score1 < score2)
+                            stile = 'color:red;';
+                    }
+                }
+            }
+                    
+
+            //Scrivo valori calcolati nella cella
+            if (url == '')   //stessa squadra
+                stRiga += '<td class="classifica-risultati" style="' + stile + '"> </td>'
+            else
+               stRiga += '<td ' + stileTD + '> <a style="text-decoration: none;font-weight: normal;' + stile + ' " href="' + url +'" target=”_blank”>' + risultato + '</a></td>';
+        }
         stRiga += '</tr>'
         $("#classifica").append(stRiga);
     }
