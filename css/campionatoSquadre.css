@@ -1,7 +1,7 @@
 ﻿html,body
 {
     font-family: "arial";
-    height: 100%;
+    /*height: 100%;*/
     margin: 0;
     overflow: hidden;
     background-color: black;
@@ -14,8 +14,8 @@
     background-color: #fff;
     margin-top: 10px;
     position: absolute;
-    width:1520px;
-    margin-left: -750px;
+    width:1320px;
+    margin-left: -670px;
     left: 50%;
 }
 .intestazione-img
@@ -50,12 +50,14 @@
     font-size: 1.0rem;
     text-decoration: none;
     color: black;
+    margin-left:50px;
 }
 .menuOk
 {
     font-size: 1.0rem;
     border-bottom: 3px solid #1A73E8;
     color: #1A73E8;    
+    margin-left:50px;
 }
 .header-partite
 {
@@ -72,7 +74,7 @@
     border-spacing: 0;
     line-height: 1.42857143;
     color: #312e2b;
-    width:1500px;
+    width:1300px;
 }
 .classifica-nameTeam
 {

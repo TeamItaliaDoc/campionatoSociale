@@ -49,16 +49,30 @@
 </div>
 
 <!--                            Menu                                        -->   
-<spam class="menu" ><a style="margin-left:10px;" class="menu" href="https://teamitaliadoc.github.io/campionatoSociale2019I/index.html">Campionato sociale 2019 </a>
-</spam>
-<spam class="menuOk" style="margin-left:100px;" >Campionato a squadre 2019 </spam>
 <spam class="menu" >
-    <a  class="menu" style="margin-left:100px;" href="https://teamitaliadoc.github.io/hallOfFame/index.html?d">Hall of fame </a>
+<select  onchange="window.location=this.options[this.selectedIndex].value">
+    <option value="">Campionato Sociale...</option>
+    <option value="https://teamitaliadoc.github.io/campionatoSociale2019I/index.html">Campionato sociale 2019</option>    
+    <option value="https://teamitaliadoc.github.io/campionatoSociale2018/index.html">Campionato sociale 2018</option>    
+  </select>
+</spam>
+<spam class="menu" >
+</spam>
+<spam class="menuOk" >Campionato a squadre 2019 </spam>
+<spam class="menu" >
+    <a  class="menu" href="https://teamitaliadoc.github.io/hallOfFame/index.html?d">Hall of fame </a>
  </spam>
-<HR>
+ <spam class="menu" >
+    <select  onchange="window.location=this.options[this.selectedIndex].value">
+        <option value="">Video...</option>
+        <option value="https://youtu.be/xCvnI2K0VN8">Inno</option>    
+        <option value="https://www.youtube.com/watch?v=9rjMwIiODsw">Compleanno 2019</option>    
+      </select>
+    </spam>
+    <HR>
 
 <!--                            SEPARATORE                                      -->   
-<table align="left" width="1950px" height="100px">
+<table align="left" width="1350px" height="100px">
     <tr> </tr>
     <tr> </tr>
 <tr> <td><h1 class="ntestazione-gironi">Classifica Squadre </h1></td> </tr>
@@ -76,7 +90,7 @@
 
     
 <!--                            SEPARATORE                                      -->   
-<table align="left" width="1950px" height="100px">
+<table align="left" width="1350px" height="100px">
     <tr> </tr>
     <tr> </tr>
 <tr> <td><h1 class="ntestazione-gironi">Migliori giocatori</h1></td> </tr>
@@ -89,7 +103,7 @@
         <td class="giocatori-col1SEP">  </td>
         <td class="classifica-col2">Giocatore</td> 
         <td class="classifica-col2">Punti</td>
-        <td class="classifica-col2">Tie Break</td>
+      <!--   <td class="classifica-col2">Tie Break</td>  -->
         <td class="classifica-col2">Risultati</td>
     </tr>
 

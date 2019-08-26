@@ -32,11 +32,9 @@ matchs[16] = {"penalità1":0.5,"penalità2":0,"id":"https://api.chess.com/pub/ma
 
 
 
-teams['team-italia-doc']={"name":"Team Italia DOC","club_id":79318,"icon":"https://images.chesscomfiles.com/uploads/v1/group/65264.ad20dc08.50x50o.1ba052e2d947.png","url":"https://www.chess.com/club/team-fastfood-doc","punti":0,"penalità":0,"puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "teamVinte" : [], "teamPatte" : []};
-teams['essex-county-chess-group']={"name":"Essex County Chess-Group","club_id":79318,"icon":"https://images.chesscomfiles.com/uploads/v1/group/5140.5fe353d8.50x50o.b653b7d9fcb8.gif","url":"https://www.chess.com/club/team-fastfood-doc","punti":0,"penalità":0,"puntiSpareggio":0, "matchConclusi":0, "puntiConclusi":0, "posizione":0, "teamVinte" : [], "teamPatte" : []};
-
-
-matchs[21] = {"penalità1":0,"penalità2":0,"id":"https://api.chess.com/pub/match/910346", "daCaricare":true, "punti1":0, "punti2":0};
+//teams['team-italia-doc']={"name":"Team Italia DOC","club_id":79318,"icon":"https://images.chesscomfiles.com/uploads/v1/group/65264.ad20dc08.50x50o.1ba052e2d947.png","url":"https://www.chess.com/club/team-fastfood-doc","punti":0,"penalità":0,"puntiSpareggio":0, "posizione":0, "matchConclusi":0, "puntiConclusi":0, "teamVinte" : [], "teamPatte" : []};
+//teams['essex-county-chess-group']={"name":"Essex County Chess-Group","club_id":79318,"icon":"https://images.chesscomfiles.com/uploads/v1/group/5140.5fe353d8.50x50o.b653b7d9fcb8.gif","url":"https://www.chess.com/club/team-fastfood-doc","punti":0,"penalità":0,"puntiSpareggio":0, "matchConclusi":0, "puntiConclusi":0, "posizione":0, "teamVinte" : [], "teamPatte" : []};
+//matchs[21] = {"penalità1":0,"penalità2":0,"id":"https://api.chess.com/pub/match/910346", "daCaricare":true, "punti1":0, "punti2":0};
 
 
 function elabora() {
@@ -156,6 +154,7 @@ function calcolaClassifica()
 {
     //calcolo punti spareggio
     //  SENZA PENALITA'
+    /*  NON USATO
     for (var nameTeam in teams)
     {
         for (var i in teams[nameTeam].teamVinte)
@@ -163,6 +162,7 @@ function calcolaClassifica()
         for (var i in teams[nameTeam].teamPatte)
             teams[nameTeam].puntiSpareggio += teams[teams[nameTeam].teamPatte[i]].punti / 2;
     }
+    */
 
     //Tolgo dai punti le penalità per calcolare la classifica
     for (var nameTeam in teams)
@@ -218,21 +218,23 @@ function calcolaClassifica()
     var score2 = 0;
     //Riga con nomi teams    
     var stRiga = '<tr class="classifica-nameTeam">' +
-            '<td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;">'+
+            '<td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;"></td><td style="background-color:gray;">' + 
+            //'</td><td style="background-color:gray;">'+
             '</td><td style="background-color:gray;"></td></td><td style="background-color:gray;"></td></td><td style="background-color:gray;"></td>' +
             '<td class="classifica-col1SEP"></td>'; 
     for (var i in classificaTeams)         
-        stRiga += '<td class="classifica-nameTeam" style="width:100px;"> <a style="color:black;text-decoration: none;font-weight: normal;" href="' + teams[classificaTeams[i]].url + '" target=”_blank”> ' + teams[classificaTeams[i]].name + '</a></td>';
+        stRiga += '<td class="classifica-nameTeam"> <a style="color:black;text-decoration: none;font-weight: normal;" href="' + teams[classificaTeams[i]].url + '" target=”_blank”> ' + teams[classificaTeams[i]].name + '</a></td>';
     stRiga += '</tr>'
     $("#classifica").append(stRiga);
     //Riga con Icone    
     stRiga = '<tr class="classifica-icon">' +
-            '<td class="classifica-icon" style="background-color:#E2E2FF;">Pos.</td> <td style="background-color:#E2E2FF;text-align:right">Team</td><td style="background-color:#E2E2FF;"></td>'+
-            '<td class="classifica-icon" style="width:100px;">Punti</td> <td class="classifica-icon" style="width:100px;">Tie Break</td>'+
-            '<td class="classifica-icon" style="width:100px;">Match conclusi</td><td class="classifica-icon" style="width:100px;">Punti match conclusi</td><td class="classifica-icon" style="width:100px;">Penalità</td>' +
+            '<td class="classifica-icon" style="background-color:#E2E2FF;">Pos.</td> <td style="background-color:#E2E2FF;">Team</td><td style="background-color:#E2E2FF;"></td>'+
+            '<td class="classifica-icon">Punti</td>' +
+            //'<td class="classifica-icon">Tie Break</td>'+
+            '<td class="classifica-icon">Match conclusi</td><td class="classifica-icon" >Punti match conclusi</td><td class="classifica-icon">Penalità</td>' +
             '<td class="classifica-col1SEP"></td>'; 
     for (var i in classificaTeams)         
-        stRiga += '<td  class="classifica-icon" style="width:100px;">  <img class="classifica-avatar" src="' + teams[classificaTeams[i]].icon + '">';
+        stRiga += '<td  class="classifica-icon">  <img class="classifica-avatar" src="' + teams[classificaTeams[i]].icon + '">';
     stRiga += '</tr>'
     $("#classifica").append(stRiga);
     //Riga team
@@ -240,11 +242,11 @@ function calcolaClassifica()
     {
         gruppo = classificaTeams[i];
         stRiga = '<tr class="classifica-risultati">' +
-            '<td class="classifica-risultati" style="width:50px;">' + teams[gruppo].posizione + '</td>' +
-            '<td class="classifica-risultati" style="width:100px;border: 0px;"> <a style="color:black;text-decoration: none;font-weight: normal;" href="' + teams[classificaTeams[i]].url + '" target=”_blank”> ' + teams[classificaTeams[i]].name + '</a></td>' +
-            '<td class="classifica-risultati" style="width:100px;;border: 0px;"> <img class="classifica-avatar" src="' + teams[classificaTeams[i]].icon + '"></td>' +
+            '<td class="classifica-risultati">' + teams[gruppo].posizione + '</td>' +
+            '<td class="classifica-risultati" style="border: 0px;"> <a style="color:black;text-decoration: none;font-weight: normal;" href="' + teams[classificaTeams[i]].url + '" target=”_blank”> ' + teams[classificaTeams[i]].name + '</a></td>' +
+            '<td class="classifica-risultati" style="border: 0px;"> <img class="classifica-avatar" src="' + teams[classificaTeams[i]].icon + '"></td>' +
             '<td class="classifica-risultati">' + teams[gruppo].punti + '</td>' +
-            '<td class="classifica-risultati">' + teams[gruppo].puntiSpareggio + '</td>' +
+            //'<td class="classifica-risultati">' + teams[gruppo].puntiSpareggio + '</td>' +
             '<td class="classifica-risultati">' + teams[gruppo].matchConclusi + '</td>' +
             '<td class="classifica-risultati">' + teams[gruppo].puntiConclusi + '</td>' +
             '<td class="classifica-risultati">' + (teams[gruppo].penalità*-1) + '</td>' +
