@@ -156,6 +156,7 @@ function setPunti(username1, username2, risultato)
 function calcolaClassificaGiocatori()
 {
     //calcolo punti spareggio
+    /*   Non Usato
     for (var username in giocatori)
     {
         for (var i in giocatori[username].userVinte)
@@ -163,6 +164,7 @@ function calcolaClassificaGiocatori()
         for (var i in giocatori[username].userpatte)
             giocatori[username].puntiSpareggio += giocatori[giocatori[username].userPatte[i]].punti / 2;
     }
+    */
 
     //Imposto posizione e salvo
     var username = '';
@@ -203,7 +205,7 @@ function calcolaClassificaGiocatori()
     }
    
  }
-
+ 
 function stampaGiocatore(username)
 {
     //stampo riga    
@@ -223,7 +225,7 @@ function stampaGiocatore(username)
         '    </tr></table>' +
         '</td>' +
         '<td class="classifica-col3">' + giocatori[username].punti +'</td>' +
-        '<td class="classifica-col3">' + giocatori[username].puntiSpareggio +'</td>' +
+       // '<td class="classifica-col3">' + giocatori[username].puntiSpareggio +'</td>' +
         '<td class="classifica-col4"> <span class="game-win">' +  giocatori[username].vinte + ' W</span> /'+
         '<span class="game-lost">' +  giocatori[username].perse + ' L</span> /' +
         '<span class="game-draw">' +  giocatori[username].patte + ' D</span>' +
